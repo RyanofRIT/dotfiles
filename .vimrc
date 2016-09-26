@@ -1,40 +1,87 @@
 " Colors {{{
 
 syntax enable
-"colorscheme
+colorscheme desert
+set background=dark
 
 " }}}
 " Misc {{{
 
-set ttyfast											" faster redraw
+" faster redraw
+set ttyfast
+
+set history=500
+
+" Makes pasting into vim easier from outside apps
+set paste
+
+" vim comments affect current file
+set modelines=1
+
+" ignore compiled files
+set wildignore=*.o,*~,*.pyc
+
+" always show current position
+set ruler
+
+" A buffer becomes hidden when it is abandoned
+set hid
+
+" Set Window split options
+set splitbelow
+set splitright
 
 " }}}
 " Spaces and tabs {{{
 
-set tabstop=2										" number of visual spaces per tab
-set softtabstop=2								" number of spaces per tab when editing
-set modelines=1									" vim comments affect current file
+" number of visual spaces per tab
+set tabstop=2
 
+" number of spaces per tab when editing
+set softtabstop=2
 " }}}
 " UI Layout {{{
 
-set number											" show line numbers
-set showcmd											" show last command in the bottom bar
-" set cursorline									" highlight/underline current line
-filetype indent on							" load filetype specific indent as ~/.vim/indent/file.vim
+" show line numbers
+set number
+
+" show last command in the bottom bar
+set showcmd
+
+" load filetype specific indent as ~/.vim indent file.vim
+filetype indent on
 filetype plugin on
-set wildmenu										" visual autocomplete for commands
-set lazyredraw									" don't redraw when not needed (during macros)
-set showmatch										" highlight matching [{()}]
+
+" visual autocomplete for commands
+set wildmenu
+
+" don't redraw when not needed (during macros)
+set lazyredraw
+
+" highlight matching {[()]}
+set showmatch
 
 " }}}
 " Searching {{{
 
-set incsearch										" search as chars are entered
-set hlsearch										" highlight matches
+" search as chars are entered
+set incsearch
+
+" highlight matches
+set hlsearch
 
 "map clearing the search to ,<space>
 nnoremap <leader><space> :nohlsearch<CR>
+
+" Try to be smart about the case when searching
+set ignorecase
+set smartcase
+
+" turn regular expressions on
+set magic
+
+" How many tenths of a second to blink when matching braces
+set mat=2
 
 " }}}
 " Folding {{{
@@ -61,7 +108,8 @@ nnoremap $ <nop>
 " highlight last inserted text
 nnoremap gV `[v`]
 
-let mapleader=","								" leader is set to comma
+" leader is set to comma
+let mapleader=","
 
 " map and source vimrc
 nnoremap <leader>ev :vsp ~/.vimrc<CR>
