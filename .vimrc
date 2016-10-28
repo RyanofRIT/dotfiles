@@ -1,19 +1,26 @@
+" Pathogen {{{
+set nocp
+execute pathogen#infect()
+" }}}
 " Colors {{{
 
 syntax enable
 colorscheme desert
 set background=dark
 
+"set syntax higlighting for special exts
+au BufNewFile,BufRead,BufReadPost *.ejs set syntax=html
+
 " }}}
 " Misc {{{
 
 " faster redraw
-set ttyfast
+"set ttyfast
 
 set history=500
 
 " Makes pasting into vim easier from outside apps
-set paste
+"set paste
 
 " vim comments affect current file
 set modelines=1
@@ -39,6 +46,9 @@ set tabstop=2
 
 " number of spaces per tab when editing
 set softtabstop=2
+
+" hwo much vim shift text
+set shiftwidth=2
 " }}}
 " UI Layout {{{
 
@@ -56,7 +66,7 @@ filetype plugin on
 set wildmenu
 
 " don't redraw when not needed (during macros)
-set lazyredraw
+"set lazyredraw
 
 " highlight matching {[()]}
 set showmatch
@@ -105,11 +115,12 @@ nnoremap E $
 nnoremap ^ <nop>
 nnoremap $ <nop>
 
-" highlight last inserted text
-nnoremap gV `[v`]
-
 " leader is set to comma
 let mapleader=","
+let maplocalleader="\\"
+
+" clear search highlighting
+nnoremap <leader><space> :nohlsearch<CR>
 
 " map and source vimrc
 nnoremap <leader>ev :vsp ~/.vimrc<CR>
@@ -121,8 +132,61 @@ inoremap jk <esc>
 " save session
 nnoremap <leader>s :mksession!<CR>
 
+" Insert promise text
+"nnoremap <leader>p :call Promise()<CR>
+"toggle paste mode
+set pastetoggle=<leader>p
+
+"page up and down with shift
+nnoremap J :set scroll=0<CR>:set scroll^=2<CR>:set scroll-=1<CR><C-D>:set scroll=0<CR>
+
+nnoremap K :set scroll=0<CR>:set scroll^=2<CR>:set scroll-=1<CR><C-U>:set scroll=0<CR>
+
+"Move lines up and down with ctrl
+nnoremap <c-j> ddp
+nnoremap <c-k> ddkP
+
+nnoremap <leader>h :call ToggleTestAutoGroup()<CR>
+
+augroup comments
+	autocmd!
+	autocmd FileType python nnoremap <buffer><leader>c I#<esc>
+
+	autocmd FileType javascript nnoremap <buffer><leader>c I//<esc>
+	autocmd FileType javascript :iabbrev <buffer><leader>f function
+	autocmd FileType javascript :iabbrev <buffer><leader>r return
+	autocmd FileType javascript :iabbrev <buffer> iff if()<left>
+	" thou shalt learn to be faster
+	autocmd FileType javascript :iabbrev <buffer> return NONONONO
+	autocmd FileType javascript :iabbrev <buffer> function NONONONO
+	autocmd FileType javascript :iabbrev <buffer> if( NONONONO
+
+augroup END
+
+" }}}
+" Backups {{{
+set backupdir=~/.vim/backup//
+"set undodir=~/.vim/undo//
+set directory=~/.vim/swap//
 " }}}
 " Functions {{{
+function! ToggleTestAutoGroup()
+    " Switch the toggle variable
+    let g:TestAutoGroupToggle = !get(g:, 'TestAutoGroupToggle', 1)
+
+    " Reset group
+    augroup TestAutoGroup
+        autocmd!
+    augroup END
+
+    " Enable if toggled on
+    if g:TestAutoGroupToggle
+        augroup TestAutoGroup
+					nnoremap <leader>d :call Promise()<CR>
+        augroup END
+    endif
+endfunction
+
 " strips trailing whitespace on buffer write
 function! <SID>StripTrailingWhitespaces()
 				" save last search and cursor position
@@ -133,4 +197,9 @@ function! <SID>StripTrailingWhitespaces()
 				let @/=_s
 				call cursor(l,c)
 endfunction
+
+function! Promise()
+	r~/.vim/js/Promise.txt
+endfunction
 " vim:foldmethod=marker:foldlevel=0
+autocmd VimEnter * echo ">^.^< LOL XD"
