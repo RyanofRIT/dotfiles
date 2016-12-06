@@ -1,6 +1,21 @@
 " Pathogen {{{
 set nocp
 execute pathogen#infect()
+"set statusline+=%{fugitive#statusline()}
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_mode="passive"
+
+let g:sparkupExecuteMapping = 'kk'
+au BufRead, BufNewFile *.ejs setfiletype html
+
 " }}}
 " Colors {{{
 
@@ -146,20 +161,31 @@ nnoremap K :set scroll=0<CR>:set scroll^=2<CR>:set scroll-=1<CR><C-U>:set scroll
 nnoremap <c-j> ddp
 nnoremap <c-k> ddkP
 
+"Move up and down the location list
+nnoremap <leader>j :lnext<CR>
+nnoremap <leader>k :lprevious<CR>
+
+" change double quotes to single quotes on given line
+nnoremap <leader>' :s/['"]/\="'\""[submatch(0)!='"']/g<CR>
+
 nnoremap <leader>h :call ToggleTestAutoGroup()<CR>
 
-augroup comments
+" indented enter (mostly for html editting)
+inoremap ll <CR><CR><esc>ki<Tab><Tab>
+
+augroup filetypes
 	autocmd!
 	autocmd FileType python nnoremap <buffer><leader>c I#<esc>
+	autocmd FileType python set expandtab softtabstop=4 shiftwidth=4 list
 
 	autocmd FileType javascript nnoremap <buffer><leader>c I//<esc>
 	autocmd FileType javascript :iabbrev <buffer><leader>f function
 	autocmd FileType javascript :iabbrev <buffer><leader>r return
 	autocmd FileType javascript :iabbrev <buffer> iff if()<left>
 	" thou shalt learn to be faster
-	autocmd FileType javascript :iabbrev <buffer> return NONONONO
-	autocmd FileType javascript :iabbrev <buffer> function NONONONO
-	autocmd FileType javascript :iabbrev <buffer> if( NONONONO
+	"autocmd FileType javascript :iabbrev <buffer> return NONONONO
+	"autocmd FileType javascript :iabbrev <buffer> function NONONONO
+	"autocmd FileType javascript :iabbrev <buffer> if( NONONONO
 
 augroup END
 
@@ -188,6 +214,7 @@ function! ToggleTestAutoGroup()
 endfunction
 
 " strips trailing whitespace on buffer write
+" TODO link this up with vim event
 function! <SID>StripTrailingWhitespaces()
 				" save last search and cursor position
 				let _s=@/
@@ -198,6 +225,7 @@ function! <SID>StripTrailingWhitespaces()
 				call cursor(l,c)
 endfunction
 
+" unused but proof of concept
 function! Promise()
 	r~/.vim/js/Promise.txt
 endfunction
