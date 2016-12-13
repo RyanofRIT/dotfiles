@@ -171,7 +171,7 @@ nnoremap <leader>' :s/['"]/\="'\""[submatch(0)!='"']/g<CR>
 nnoremap <leader>h :call ToggleTestAutoGroup()<CR>
 
 " indented enter (mostly for html editting)
-inoremap ll <CR><CR><esc>ki<Tab><Tab>
+inoremap <leader>l <CR><CR><esc>ki<Tab><Tab>
 
 augroup filetypes
 	autocmd!
@@ -226,8 +226,8 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 " unused but proof of concept
-function! Promise()
-	r~/.vim/js/Promise.txt
-endfunction
+" function! Promise()
+" 	r~/.vim/js/Promise.txt
+" endfunction
 " vim:foldmethod=marker:foldlevel=0
 autocmd VimEnter * echo ">^.^< LOL XD"
