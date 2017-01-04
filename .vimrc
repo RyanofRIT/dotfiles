@@ -191,6 +191,9 @@ augroup END
 
 " }}}
 " Backups {{{
+set noswapfile
+set nobackup
+set nowritebackup
 set backupdir=~/.vim/backup//
 "set undodir=~/.vim/undo//
 set directory=~/.vim/swap//
