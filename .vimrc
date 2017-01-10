@@ -1,10 +1,10 @@
 " Pathogen {{{
 set nocp
 execute pathogen#infect()
-"set statusline+=%{fugitive#statusline()}
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+set statusline+=%{fugitive#statusline()}
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -23,19 +23,16 @@ syntax enable
 colorscheme desert
 set background=dark
 
-"set syntax higlighting for special exts
+"set syntax highlighting for express templates to html
 au BufNewFile,BufRead,BufReadPost *.ejs set syntax=html
 
 " }}}
 " Misc {{{
 
 " faster redraw
-"set ttyfast
+set ttyfast
 
 set history=500
-
-" Makes pasting into vim easier from outside apps
-"set paste
 
 " vim comments affect current file
 set modelines=1
@@ -62,7 +59,7 @@ set tabstop=2
 " number of spaces per tab when editing
 set softtabstop=2
 
-" hwo much vim shift text
+" how much vim shift text
 set shiftwidth=2
 " }}}
 " UI Layout {{{
@@ -112,9 +109,9 @@ set mat=2
 " Folding {{{
 
 set foldenable
-set foldlevelstart=6						" depth at which to start folding
-set foldnestmax=10							" don't allow to many folds
-set foldmethod=indent						" vs marker, manual, expr, syntax, or diff
+set foldlevelstart=6 " depth at which to start folding
+set foldnestmax=10 " don't allow to many folds
+set foldmethod=indent " vs marker, manual, expr, syntax, or diff
 nnoremap <space> za
 
 " }}}
@@ -147,8 +144,6 @@ inoremap jk <esc>
 " save session
 nnoremap <leader>s :mksession!<CR>
 
-" Insert promise text
-"nnoremap <leader>p :call Promise()<CR>
 "toggle paste mode
 set pastetoggle=<leader>p
 
@@ -168,8 +163,6 @@ nnoremap <leader>k :lprevious<CR>
 " change double quotes to single quotes on given line
 nnoremap <leader>' :s/['"]/\="'\""[submatch(0)!='"']/g<CR>
 
-nnoremap <leader>h :call ToggleTestAutoGroup()<CR>
-
 " indented enter (mostly for html editting)
 inoremap <leader>l <CR><CR><esc>ki<Tab><Tab>
 
@@ -182,11 +175,9 @@ augroup filetypes
 	autocmd FileType javascript :iabbrev <buffer><leader>f function
 	autocmd FileType javascript :iabbrev <buffer><leader>r return
 	autocmd FileType javascript :iabbrev <buffer> iff if()<left>
-	" thou shalt learn to be faster
 	"autocmd FileType javascript :iabbrev <buffer> return NONONONO
 	"autocmd FileType javascript :iabbrev <buffer> function NONONONO
 	"autocmd FileType javascript :iabbrev <buffer> if( NONONONO
-
 augroup END
 
 " }}}
@@ -195,42 +186,21 @@ set noswapfile
 set nobackup
 set nowritebackup
 set backupdir=~/.vim/backup//
-"set undodir=~/.vim/undo//
+set undodir=~/.vim/undo//
 set directory=~/.vim/swap//
 " }}}
 " Functions {{{
-function! ToggleTestAutoGroup()
-    " Switch the toggle variable
-    let g:TestAutoGroupToggle = !get(g:, 'TestAutoGroupToggle', 1)
-
-    " Reset group
-    augroup TestAutoGroup
-        autocmd!
-    augroup END
-
-    " Enable if toggled on
-    if g:TestAutoGroupToggle
-        augroup TestAutoGroup
-					nnoremap <leader>d :call Promise()<CR>
-        augroup END
-    endif
-endfunction
-
 " strips trailing whitespace on buffer write
-" TODO link this up with vim event
 function! <SID>StripTrailingWhitespaces()
-				" save last search and cursor position
-				let _s=@/
-				let l = line(".")
-				let c - col(".")
-				%s/\s\+$//e
-				let @/=_s
-				call cursor(l,c)
+	echom "whitespace"
+	" save last search and cursor position
+	let _s=@/
+	let l = line(".")
+	let c - col(".")
+	%s/\s\+$//e
+	let @/=_s
+	call cursor(l,c)
 endfunction
 
-" unused but proof of concept
-" function! Promise()
-" 	r~/.vim/js/Promise.txt
-" endfunction
-" vim:foldmethod=marker:foldlevel=0
 autocmd VimEnter * echo ">^.^< LOL XD"
+" vim:foldmethod=marker:foldlevel=0
