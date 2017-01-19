@@ -2,15 +2,37 @@
 	email = rjb1928@rit.edu
 	name = Ryan Bell
 [alias]
+	# list commits short form
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	
+	# list commits with changed files
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	
+	# list commits with dates
 	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	
+	# list commits with relative dates
 	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	
+	# default git log
 	le = log --oneline --decorate
+	
+	# list all commits related to file 
 	fl = log -u
+	
+	# list modified files in last commit 
 	dl = "!git ll -1"
+	
+	# show diff of last commit
 	dlc = diff --cached HEAD^
+	
+	# list all aliases
 	la = "!git config -l | grep alias | cut -c 7-"
+	
+	# list all staged files
+	ca = diff --name-only --cached
+	
+	# shorten standard commands
 	st = status -s
 	cl = clone
 	ci = commit
