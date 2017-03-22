@@ -3,4 +3,5 @@ xset m 1/1
 compton &
 devmon &
 dunst &
+urxvtd --quiet --opendisplay --fork &
 exec i3

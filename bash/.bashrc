@@ -1,6 +1,3 @@
-# This hack may or may not be needed
-# export $(dbus-launch)
-
 # Set the prompt.
 export PS1="$USER \w \[$(tput setaf 5)\]>\[$(tput sgr0)\]"
 
@@ -34,7 +31,7 @@ source "$HOME/.cache/wal/colors.sh"
 [[ -z "$VTE_VERSION" ]] && (wal -r &)
 
 # Auto start X.
-#[[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 ]] && exec startx -- vt1 &> /dev/null
+# [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 ]] && exec startx -- vt1 &> /dev/null
 
 # Source git autocompletions
 source /usr/share/bash-completion/completions/git
