@@ -4,4 +4,6 @@ compton &
 devmon &
 dunst &
 urxvtd --quiet --opendisplay --fork &
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
 exec i3
