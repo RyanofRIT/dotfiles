@@ -1,5 +1,4 @@
 " Pathogen {{{
-set nocp
 execute pathogen#infect()
 set statusline+=%{fugitive#statusline()}
 set statusline+=%#warningmsg#
@@ -28,11 +27,6 @@ au BufNewFile,BufRead,BufReadPost *.ejs set syntax=html
 
 " }}}
 " Misc {{{
-
-" faster redraw
-set ttyfast
-
-set history=500
 
 " vim comments affect current file
 set modelines=1
@@ -69,13 +63,6 @@ set number
 
 " show last command in the bottom bar
 set showcmd
-
-" load filetype specific indent as ~/.vim indent file.vim
-filetype indent on
-filetype plugin on
-
-" visual autocomplete for commands
-set wildmenu
 
 " don't redraw when not needed (during macros)
 "set lazyredraw
