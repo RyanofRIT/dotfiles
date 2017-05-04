@@ -10,6 +10,7 @@ if dein#load_state("~/.config/dein/")
 
 	call dein#add("~/.config/dein/repos/github.com/Shougo/dein.vim/")
 	call dein#add('Shougo/deoplete.nvim')
+	call dein#add('rstacruz/sparkup')
 
 	call dein#end()
 	call dein#save_state()
@@ -24,8 +25,8 @@ syntax enable
 let g:deoplete#enable_at_startup = 1
 
 " Colors {{{
-colorscheme molokai
-set background=dark
+"colorscheme molokai
+"set background=dark
 
 " set syntax highlighting for express templates to html
 au BufNewFile,BufRead,BufReadPost *.ejs set syntax=html
@@ -162,6 +163,15 @@ augroup filetypes
 	autocmd FileType javascript nnoremap <buffer><leader>c I//<esc>
 	autocmd FileType javascript :iabbrev <buffer> iff if()<left>
 augroup END
+
+" Tab autocomplete
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ newcomplete#start_manual_complete()
+function! s:check_back_space() "{{{
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1] =~ '\s'
+endfunction"}}}
 
 
 " }}}
