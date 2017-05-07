@@ -10,11 +10,26 @@ if dein#load_state("~/.config/dein/")
 
 	call dein#add("~/.config/dein/repos/github.com/Shougo/dein.vim/")
 	call dein#add('Shougo/deoplete.nvim')
-	call dein#add('rstacruz/sparkup')
+	call dein#add('tpope/vim-surround.git')
+	call dein#add('scrooloose/nerdcommenter')
+	call dein#add('airblade/vim-gitgutter')
+	call dein#add('vim-airline/vim-airline')
+	call dein#add('rstacruz/sparkup.git')
 
 	call dein#end()
 	call dein#save_state()
 endif
+
+" gitgutter config
+let g:gitgutter_realtime = 1 "update when done typing
+set updatetime=250 "instead of 4 second default
+
+" vim-airline config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
+
 
 " Required for dein
 filetype plugin indent on
@@ -98,7 +113,7 @@ set mat=2
 " Folding {{{
 
 set foldenable
-set foldlevelstart=6 " depth at which to start folding
+set foldlevelstart=60 " depth at which to start folding
 set foldnestmax=10 " don't allow to many folds
 set foldmethod=indent " vs marker, manual, expr, syntax, or diff
 nnoremap <space> za
@@ -173,6 +188,12 @@ function! s:check_back_space() "{{{
 	return !col || getline('.')[col - 1] =~ '\s'
 endfunction"}}}
 
+" Trim whitespace
+fun! TrimWhiteSpace()
+	let l:save = winsaveview()
+	%s/\s\+$//e
+	call winrestview(l:save)
+endfun
 
 " }}}
 " Backups {{{
