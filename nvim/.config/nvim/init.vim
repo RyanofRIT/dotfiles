@@ -14,6 +14,7 @@ if dein#load_state("~/.config/dein/")
 	call dein#add('scrooloose/nerdcommenter')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('vim-airline/vim-airline')
+	call dein#add('tpope/vim-fugitive')
 	call dein#add('rstacruz/sparkup.git')
 
 	call dein#end()
