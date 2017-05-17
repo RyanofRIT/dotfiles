@@ -6,6 +6,7 @@ export EDITOR="nvim"
 
 # Add ~/bin to path
 PATH="$PATH:$HOME/bin"
+PATH="$PATH:$HOME/bin/npm-global/bin"
 
 # Set XDG_CONFIG_HOME
 export XDG_CONFIG_HOME="${HOME}/.config"
@@ -45,4 +46,8 @@ source "$HOME/.gem/ruby/2.4.0/bin"
 # Source git autocompletions
 source /usr/share/bash-completion/completions/git
 
+umask 027
+
 neofetch
+
+
