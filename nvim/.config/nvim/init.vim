@@ -31,6 +31,7 @@ let g:airline_powerline_fonts = 1
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
 
+let g:sparkupExecuteMapping = 'kk'
 
 " Required for dein
 filetype plugin indent on
@@ -170,6 +171,7 @@ nnoremap <leader>' :s/['"]/\="'\""[submatch(0)!='"']/g<CR>
 
 " indented enter (mostly for html editting)
 inoremap <leader>l <CR><CR><esc>ki<Tab><Tab>
+
 
 augroup filetypes
 	autocmd!
