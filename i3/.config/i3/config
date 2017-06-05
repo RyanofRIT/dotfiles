@@ -127,7 +127,7 @@ client.placeholder	$bg	$bg	$fg	$bg		$bg
 client.background $bg
 
 # Add a 5px border to all windows
-for_window [class="^.*"] border normal 0
+for_window [class="^.*"] border normal 5
 
 # Float all windows by default
 #for_window [class="^.*"] floating enable 

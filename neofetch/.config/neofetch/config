@@ -62,7 +62,7 @@ print_info() {
 # Example:
 # on:  '4.8.9-1-ARCH'
 # off: 'Linux 4.8.9-1-ARCH'
-kernel_shorthand="off"
+kernel_shorthand="on"
 
 
 # Distro
@@ -86,7 +86,7 @@ distro_shorthand="off"
 # Example:
 # on:  'Arch Linux x86_64'
 # off: 'Arch Linux'
-os_arch="on"
+os_arch="off"
 
 
 # Uptime
