@@ -1,0 +1,22 @@
+[submodule "dein/.config/dein/repos/github.com/airblade/vim-gutter"]
+	path = "dein/.config/dein/repos/github.com/airblade/vim-gitgutter"
+	url = "https://github.com/airblade/vim-gitgutter.git"
+
+[submodule "dein/.config/dein/repos/github.com/rstacruz/sparkup"]
+	path = "dein/.config/dein/repos/github.com/rstacruz/sparkup"
+	url = "https://github.com/rstacruz/sparkup.git"
+[submodule "dein/.config/dein/repos/github.com/scrooloose/nerdcommenter"]
+	path = "dein/.config/dein/repos/github.com/scrooloose/nerdcommenter"
+	url = "https://github.com/scrooloose/nerdcommenter.git"
+[submodule "dein/.config/dein/repos/github.com/Shougo/deoplete.nvim"]
+	path = "dein/.config/dein/repos/github.com/Shougo/deoplete.nvim"
+	url = "https://github.com/Shougo/deoplete.git"
+[submodule "dein/.config/dein/repos/github.com/tpope/vim-fugitive"]
+	path = "dein/.config/dein/repos/github.com/tpope/vim-fugitive"
+	url = "https://github.com/tpope/vim-fugitive.git"
+[submodule "dein/.config/dein/repos/github.com/tpope/vim-surround"]
+	path = "dein/.config/dein/repos/github.com/tpope/vim-surround"
+	url = "https://github.com/tpope/vim-surround.git"
+[submodule "dein/.config/dein/repos/github.com/vim-airline/vim-airline"]
+	path = "dein/.config/dein/repos/github.com/vim-airline/vim-airline"
+	url = "https://github.com/vim-airline/vim-airline.git"
