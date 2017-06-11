@@ -138,17 +138,14 @@ client.placeholder	$bg	$bg	$fg	$bg		$bg
 client.background $bg
 
 # Add a 5px border to all windows
-for_window [class="^.*"] border normal 5
-
-# Float all windows by default
-#for_window [class="^.*"] floating enable
+for_window [class="^.*"] border pixel 5
 
 smart_borders on
 smart_gaps on
 gaps inner 25
 
-font pango:lemon 11
-for_window [class=".*"] title_format "<span font='Artwiz Lemon 7'> > %title</span>"
+# font pango:lemon 11
+# for_window [class=".*"] title_format "<span font='Artwiz Lemon 7'> > %title</span>"
 
 # Audio controls
 # Uses dB not percent
