@@ -144,10 +144,16 @@ for_window [class="^.*"] border normal 5
 #for_window [class="^.*"] floating enable
 
 smart_borders on
+smart_gaps on
 gaps inner 25
 
 font pango:lemon 11
 for_window [class=".*"] title_format "<span font='Artwiz Lemon 7'> > %title</span>"
+
+# Audio controls
+# Uses dB not percent
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 1+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 1-
 
 # Cycle wallpapers
 bindsym $mod+w exec "wal -i $HOME/Pictures/Wallpapers -o wal-set"
