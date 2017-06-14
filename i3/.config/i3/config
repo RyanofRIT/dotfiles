@@ -149,8 +149,8 @@ gaps inner 25
 
 # Audio controls
 # Uses dB not percent
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 1+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 1-
+bindsym XF86AudioRaiseVolume exec --no-startup-id vol up
+bindsym XF86AudioLowerVolume exec --no-startup-id vol down
 
 # Cycle wallpapers
 bindsym $mod+w exec "wal -i $HOME/Pictures/Wallpapers -o wal-set"
