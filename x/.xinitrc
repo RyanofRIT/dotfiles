@@ -14,7 +14,6 @@ xset m 1/1
 
 # compton config at ~.compton.conf fixes some bugs with x and i3
 compton &
-devmon &
 dunst &
 xrdb -merge "$HOME/.Xresources"
 urxvtd --quiet --opendisplay --fork &
