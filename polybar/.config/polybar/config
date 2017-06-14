@@ -10,9 +10,9 @@ foreground = #c4b7c5
 fixed-center = true
 font-0 = Iosevka Nerd Font:pixelsize=10:weight=normal;0
 
-modules-left = i3
-modules-center = date weather
-modules-right = wireless-network cpu temperature memory pavolume powermenu
+modules-left = i3 github
+modules-center = date
+modules-right = cpu temperature memory pavolume powermenu
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -37,16 +37,23 @@ label-focused-padding = 1
 label-urgent-foreground = #e4b226
 label-urgent-padding = 1
 
+[module/github]
+type = internal/github
+
+; Accessing an access token stored in file
+token = ${file:/home/mainuser/.config/polybar/access_token}
+
+; Whether empty notifications should be displayed or not
+empty-notifications = false
+
+label =   %notifications%
+
 [module/cpu]
 type = internal/cpu
 
-interval = 1
-
-format = <label>
 format-padding = 2
 
 label =  %percentage%%
-
 
 [module/memory]
 type = internal/memory
@@ -137,27 +144,11 @@ menu-2-0-background = #312842
 menu-2-0-foreground = #e4b226
 menu-2-0-padding-right = 3
 
-# [module/weather]
-# type = custom/script
-#
-# interval = 120
-#
-# format-padding = 2
-#
-# exec = ~/.config/polybar/weather.py
-#
-#
-# [module/wireless-network]
-# type = internal/network
-#
-# interface = wlo1
-#
-# format-connected = <label-connected>
-# format-connected-padding = 2
-#
-# format-disconnected = <label-disconnected>
-# format-disconnected-padding = 2
-#
-# label-connected =  %essid%
-#
-# label-disconnected =  None
+[module/weather]
+type = custom/script
+
+interval = 120
+
+format-padding = 2
+
+exec = ~/.config/polybar/weather.py
