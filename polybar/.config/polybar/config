@@ -1,6 +1,6 @@
 [bar/top]
 width = 100%
-height = 40
+height = 18
 
 monitor = DVI-I-1
 
@@ -8,11 +8,11 @@ background = #141021
 foreground = #c4b7c5
 
 fixed-center = true
-font-0 = Iosevka Nerd Font:pixelsize=12:weight=bold;0
+font-0 = Iosevka Nerd Font:pixelsize=10:weight=normal;0
 
 modules-left = i3
 modules-center = date weather
-modules-right = wireless-network cpu memory pavolume powermenu
+modules-right = wireless-network cpu temperature memory pavolume powermenu
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -58,31 +58,12 @@ format-padding = 2
 
 label =  %gb_used% (%percentage_used%%)
 
-# [module/temperature]
-# type = internal/temperature
-# interval = 1
-#
-# thermal-zone = 6
-#
-# warn-temperature = 80
-#
-# format = <ramp> <label>
-# format-padding = 2
-#
-# format-warn = <ramp> <label-warn>
-# format-warn-padding = 2
-#
-# label = %temperature%
-#
-# label-warn = %temperature%
-# label-warn-foreground = #e4b226
-#
-# ramp-0 = 
-# ramp-1 = 
-# ramp-2 = 
-# ramp-3 = 
-# ramp-4 = 
-
+[module/temperature]
+type = custom/script
+exec-if = sensors
+exec = sensors | grep temp2 | awk '{print $2}' | sed 's/+//g'
+format-prefix = " "
+format-prefix-foreground = #8a7f8f
 
 [module/date]
 type = internal/date
