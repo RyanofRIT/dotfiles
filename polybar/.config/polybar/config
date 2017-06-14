@@ -10,32 +10,12 @@ foreground = #c4b7c5
 fixed-center = true
 font-0 = Iosevka Nerd Font:pixelsize=10:weight=normal;0
 
-modules-left = i3 github
+modules-left = github
 modules-center = date
 modules-right = cpu temperature memory pavolume powermenu
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
-
-[module/i3]
-type = internal/i3
-
-pin-workspaces = true
-strip-wsnumbers = true
-index-sort = true
-enable-scroll = false
-
-format = <label-state>
-format-padding-right = 2
-
-label-unfocused-foreground = #8a7f8f
-label-unfocused-padding = 1
-
-label-focused-foreground = #c16772
-label-focused-padding = 1
-
-label-urgent-foreground = #e4b226
-label-urgent-padding = 1
 
 [module/github]
 type = internal/github
@@ -47,6 +27,7 @@ token = ${file:/home/mainuser/.config/polybar/access_token}
 empty-notifications = false
 
 label =   %notifications%
+format-padding = 2
 
 [module/cpu]
 type = internal/cpu
