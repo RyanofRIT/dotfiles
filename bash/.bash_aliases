@@ -5,6 +5,11 @@ alias mail='mutt -F ~/.config/mutt/.muttrc'
 alias gttr='gitter-cli'
 alias git='hub'
 alias ghcal='ghcal -u Ryan-Bell'
+alias ~='cd ~'
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
 
 chdir(){
 	mkdir "$1"
