@@ -1,9 +1,9 @@
 URxvt*font: xft:Iosevka Nerd Font:pixelsize=10:weight=normal
 URxvt*boldFont: xft:Iosevka Nerd Font:pixelsize=10:weight=bold
 
-Xft.dpi: 96
+Xft.dpi: 166
 Xft.autohint: 0
-Xft.antialias: 1
+Xft.antialias: false
 Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.rgba: rgb
