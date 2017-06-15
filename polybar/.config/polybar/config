@@ -11,7 +11,7 @@ fixed-center = true
 font-0 = Iosevka Nerd Font:pixelsize=10:weight=normal;0
 
 modules-left = github
-modules-center = date
+modules-center = date weather
 modules-right = cpu temperature memory volume powermenu
 
 scroll-up = i3wm-wsnext
@@ -125,9 +125,7 @@ menu-2-0-padding-right = 3
 
 [module/weather]
 type = custom/script
-
 interval = 120
-
 format-padding = 2
 
 exec = ~/.config/polybar/weather.py
