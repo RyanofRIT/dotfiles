@@ -12,7 +12,7 @@ font-0 = Iosevka Nerd Font:pixelsize=10:weight=normal;0
 
 modules-left = github
 modules-center = date
-modules-right = cpu temperature memory pavolume powermenu
+modules-right = cpu temperature memory volume powermenu
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -69,17 +69,15 @@ format-padding = 2
 
 label =  %date% %time%
 
-[module/pavolume]
-type = custom/script
+[module/volume]
+type = internal/volume
 
-interval = 1
+master-soundcard = default
+format-volume = <ramp-volume> <label-volume>
 
-format-padding = 2
-
-
-click-left = ~/scripts/pavolume.sh --togmute
-scroll-up = ~/scripts/pavolume.sh --up
-scroll-down = ~/scripts/pavolume.sh --down
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 
 
 [module/powermenu]
