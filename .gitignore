@@ -1,2 +1,5 @@
 *.netrwhist
 access_token
+ranger/.config/ranger/bookmarks
+ranger/.config/ranger/history
+ranger/.config/ranger/tagged
