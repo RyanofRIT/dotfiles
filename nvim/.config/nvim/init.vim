@@ -14,7 +14,6 @@ if dein#load_state("~/.config/dein/")
 	call dein#add('scrooloose/nerdcommenter')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('vim-airline/vim-airline')
-	call dein#add('tpope/vim-fugitive')
 	call dein#add('rstacruz/sparkup.git')
 
 	call dein#end()
@@ -57,9 +56,6 @@ set modelines=1
 " ignore compiled files
 set wildignore=*.o,*~,*.pyc
 
-" always show current position
-set ruler
-
 " A buffer becomes hidden when it is abandoned
 set hid
 
@@ -86,6 +82,7 @@ set number
 
 " show last command in the bottom bar
 set showcmd
+
 " highlight matching {[()]}
 set showmatch
 
@@ -150,36 +147,28 @@ inoremap jk <esc>
 " save session
 nnoremap <leader>s :mksession!<CR>
 
-"toggle paste mode
+" Toggle paste mode
 set pastetoggle=<leader>p
 
-"page up and down with shift
+" Page up and down with shift
 nnoremap J :set scroll=0<CR>:set scroll^=2<CR>:set scroll-=1<CR><C-D>:set scroll=0<CR>
 
 nnoremap K :set scroll=0<CR>:set scroll^=2<CR>:set scroll-=1<CR><C-U>:set scroll=0<CR>
 
-"Move lines up and down with ctrl
+" Move lines up and down with ctrl
 nnoremap <c-j> ddp
 nnoremap <c-k> ddkP
 
-"Move up and down the location list
+" Move up and down the location list
 nnoremap <leader>j :lnext<CR>
 nnoremap <leader>k :lprevious<CR>
 
-" change double quotes to single quotes on given line
-nnoremap <leader>' :s/['"]/\="'\""[submatch(0)!='"']/g<CR>
-
-" indented enter (mostly for html editting)
+" Indented enter (mostly for html editting)
 inoremap <leader>l <CR><CR><esc>ki<Tab><Tab>
-
 
 augroup filetypes
 	autocmd!
-	autocmd FileType python nnoremap <buffer><leader>c I#<esc>
 	autocmd FileType python set expandtab softtabstop=4 shiftwidth=4 list
-
-	autocmd FileType javascript nnoremap <buffer><leader>c I//<esc>
-	autocmd FileType javascript :iabbrev <buffer> iff if()<left>
 augroup END
 
 " Tab autocomplete
@@ -206,5 +195,3 @@ set nowritebackup
 " }}}
 autocmd VimEnter * echo ">^.^< LOL XD"
 " vim:foldmethod=marker:foldlevel=0
-
-
