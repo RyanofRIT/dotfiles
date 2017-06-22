@@ -3,7 +3,7 @@
 
 Xft.dpi: 166
 Xft.autohint: 0
-Xft.antialias: false
+Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.rgba: rgb

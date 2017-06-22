@@ -3,5 +3,4 @@
 #
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
-transmission-daemon
-sudo ~/.bin/sustart
+sudo ~/bin/sustart
