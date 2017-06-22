@@ -128,27 +128,23 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# class			border	backgr.	text	indicator	child_border
-client.focused		$bg	$bg	$fg	$bg		$bg
-client.focused_inactive $bg	$bg	$fg	$bg		$bg
-client.unfocused 	$bg	$bg	$fg	$bg		$bg
-client.urgent		$bg	$bg	$fg	$bg		$bg
-client.placeholder	$bg	$bg	$fg	$bg		$bg
+# class			        border	backgr.	text	indicator	child_border
+client.focused          $bg		$bg		$fg		$bg		$bg
+client.focused_inactive $bg		$bg		$fg		$bg		$bg
+client.unfocused        $bg		$bg		$fg		$bg		$bg
+client.urgent           $bg		$bg		$fg		$bg		$bg
+client.placeholder      $bg		$bg		$fg		$bg		$bg
 
 client.background $bg
 
-# Add a 5px border to all windows
-for_window [class="^.*"] border pixel 5
+# Add a 1px border to all windows
+for_window [class="^.*"] border pixel 1
 
 smart_borders on
 smart_gaps on
 gaps inner 25
 
-# font pango:lemon 11
-# for_window [class=".*"] title_format "<span font='Artwiz Lemon 7'> > %title</span>"
-
 # Audio controls
-# Uses dB not percent
 bindsym XF86AudioRaiseVolume exec --no-startup-id vol up
 bindsym XF86AudioLowerVolume exec --no-startup-id vol down
 
@@ -156,4 +152,4 @@ bindsym XF86AudioLowerVolume exec --no-startup-id vol down
 bindsym $mod+w exec "wal -i $HOME/Pictures/Wallpapers -o wal-set"
 exec wal -i "$(< "${HOME}/.cache/wal/wal")" -o "wal-set"
 
-
+bindsym $mod+z exec i3lock
