@@ -152,4 +152,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id vol down
 bindsym $mod+w exec "wal -i $HOME/Pictures/Wallpapers -o wal-set"
 exec wal -i "$(< "${HOME}/.cache/wal/wal")" -o "wal-set"
 
+exec polybar top
+
 bindsym $mod+z exec i3lock
