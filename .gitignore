@@ -6,3 +6,5 @@ ranger/.config/ranger/tagged
 ranger/.config/ranger/commands.py
 nvim/.config/dein/cache_nvim
 nvim/.config/dein/state_nvim.vim
+weechat/.weechat/logs*
+*.log
