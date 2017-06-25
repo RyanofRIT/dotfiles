@@ -154,4 +154,4 @@ exec wal -i "$(< "${HOME}/.cache/wal/wal")" -o "wal-set"
 
 exec polybar top
 
-bindsym $mod+z exec i3lock
+bindsym $mod+z exec ~/bin/lock
