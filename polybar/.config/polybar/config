@@ -10,9 +10,11 @@ foreground = #c4b7c5
 fixed-center = true
 font-0 = Iosevka Nerd Font:pixelsize=10:weight=normal;0
 
+tray-position = left
+
 modules-left = github vpncheck pkg
 modules-center = date weather
-modules-right = cpu temperature memory volume powermenu
+modules-right = cpu temperature memory volume
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -34,7 +36,7 @@ format-padding = 2
 [module/vpncheck]
 type = custom/script
 exec = pgrep openvpn
-interval = 5
+interval = 10
 label = vpn
 format-underline = #268bd2
 format-prefix = "  "
