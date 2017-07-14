@@ -15,6 +15,9 @@ if dein#load_state("~/.config/dein/")
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('vim-airline/vim-airline')
 	call dein#add('rstacruz/sparkup.git')
+	call dein#add('tpope/vim-endwise')
+	call dein#add('raimondi/delimitmate')
+	"call dein#add('vim-syntastic/syntastic')
 
 	call dein#end()
 	call dein#save_state()
@@ -31,6 +34,7 @@ nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
 
 let g:sparkupExecuteMapping = 'kk'
+
 
 " Required for dein
 filetype plugin indent on
@@ -74,6 +78,7 @@ set softtabstop=2
 
 " how much vim shift text
 set shiftwidth=2
+set expandtab
 " }}}
 " UI Layout {{{
 

@@ -29,6 +29,8 @@ URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 *background:   #232c33
 *cursorColor:  #f0f0f0
 
+rofi.hide-scrollbar: true
+
 ! black
 ! Second black is grey
 *color0:       #232c33
