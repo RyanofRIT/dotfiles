@@ -20,6 +20,7 @@ export HISTCONTROL=ignoredups
 
 # Check window size after every command
 shopt -s checkwinsize
+shopt -s extglob
 
 # ALIASES
 if [ -f ~/.bash_aliases ]; then
