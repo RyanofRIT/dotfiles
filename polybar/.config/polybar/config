@@ -50,7 +50,7 @@ format = <label>
 format-underline = #dc322f
 label = "%output:0:30%"
 exec = ~/.config/polybar/pkg.sh
-exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
+; exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 
 
 [module/cpu]
