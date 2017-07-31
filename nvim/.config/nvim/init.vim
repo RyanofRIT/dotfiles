@@ -16,8 +16,12 @@ if dein#load_state("~/.config/dein/")
 	call dein#add('vim-airline/vim-airline')
 	call dein#add('rstacruz/sparkup.git')
 	call dein#add('tpope/vim-endwise')
-	call dein#add('raimondi/delimitmate')
+  call dein#add('tpope/vim-speeddating')
+  call dein#add('tpope/tpope-vim-abolish')
+  call dein#add('tpope/repeat')
+	"call dein#add('raimondi/delimitmate')
 	"call dein#add('vim-syntastic/syntastic')
+  "tpope/vim-eunuch
 
 	call dein#end()
 	call dein#save_state()
@@ -39,11 +43,11 @@ let g:sparkupExecuteMapping = 'kk'
 " Required for dein
 filetype plugin indent on
 syntax enable
- " }}}
 
 " Set autocomplete to be on by default
 let g:deoplete#enable_at_startup = 1
 
+ " }}}
 " Colors {{{
 "colorscheme molokai
 "set background=dark
@@ -78,7 +82,6 @@ set softtabstop=2
 
 " how much vim shift text
 set shiftwidth=2
-set expandtab
 " }}}
 " UI Layout {{{
 
