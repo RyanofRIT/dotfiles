@@ -31,6 +31,9 @@
 	
 	# list all staged files
 	ca = diff --name-only --cached
+
+	# show the detailed history of a file
+	history = "!sh -c \"git log -p -M --follow --stat -- $1\" -"
 	
 	# shorten standard commands
 	st = status -s
