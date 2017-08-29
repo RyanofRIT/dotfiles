@@ -12,7 +12,7 @@ font-0 = Iosevka Nerd Font:pixelsize=10:weight=normal;0
 
 tray-position = left
 
-modules-left = github vpncheck pkg
+modules-left = github pkg
 modules-center = date weather
 modules-right = cpu temperature memory volume
 
