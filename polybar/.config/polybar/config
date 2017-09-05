@@ -26,9 +26,6 @@ type = internal/github
 ; Accessing an access token stored in file
 token = ${file:/home/mainuser/.config/polybar/access_token}
 
-; Whether empty notifications should be displayed or not
-empty-notifications = false
-
 label =   %notifications%
 format-padding = 2
 
