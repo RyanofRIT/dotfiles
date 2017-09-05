@@ -1,0 +1,15 @@
+clear Lock
+!keycode 66 = Multi_key
+! keycode 66 = NoSymbol NoSymbol
+! keycode 66 = ISO_Level3_Shift
+
+! keysym h = h H NoSymbol NoSymbol Left Left
+! keysym j = j J NoSymbol NoSymbol Down Down
+! keysym k = k K NoSymbol NoSymbol Up Up
+! keysym l = l L NoSymbol NoSymbol Right Right
+!
+keycode 66 = Mode_switch
+keycode 43 = h H Left Left
+keycode 44 = j J Down Down
+keycode 45 = k K Up Up
+keycode 46 = l L Right Right
