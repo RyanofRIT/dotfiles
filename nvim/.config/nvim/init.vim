@@ -16,9 +16,11 @@ if dein#load_state("~/.config/dein/")
 	call dein#add('vim-airline/vim-airline')
 	call dein#add('rstacruz/sparkup.git')
 	call dein#add('tpope/vim-endwise')
-  call dein#add('tpope/vim-speeddating')
-  call dein#add('tpope/tpope-vim-abolish')
-  call dein#add('tpope/repeat')
+	call dein#add('tpope/vim-speeddating')
+	call dein#add('tpope/tpope-vim-abolish')
+	call dein#add('tpope/vim-repeat')
+	call dein#add('godlygeek/tabular')
+	"call dein#add('AndrewRadev/splitjoin.vim')
 	"call dein#add('raimondi/delimitmate')
 	"call dein#add('vim-syntastic/syntastic')
   "tpope/vim-eunuch
@@ -132,11 +134,13 @@ nnoremap <space> za
 nnoremap j gj
 nnoremap k gk
 
+
 " move to the beginning/end of the line
 nnoremap B ^
 nnoremap E $
 nnoremap ^ <nop>
 nnoremap $ <nop>
+
 
 " leader is set to comma
 let mapleader=","
@@ -195,6 +199,10 @@ fun! TrimWhiteSpace()
 	call winrestview(l:save)
 endfun
 
+fun! Require(module)
+	return "const ".a:module." = require('".a:module."');"
+endfun
+
 " }}}
 " Backups {{{
 set noswapfile
@@ -203,3 +211,13 @@ set nowritebackup
 " }}}
 autocmd VimEnter * echo ">^.^< LOL XD"
 " vim:foldmethod=marker:foldlevel=0
+
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+map! <up> <nop>
+map! <down> <nop>
+map! <left> <nop>
+map! <right> <nop>
