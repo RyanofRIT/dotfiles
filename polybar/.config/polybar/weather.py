@@ -2,7 +2,7 @@
 
 import urllib.request, json
 
-city = "Bellerica"
+city = "Rochester"
 api_key = "480f6e5190ddcc81f415d3ce8c3da384"
 units = "Imperial"
 unit_key = "F"

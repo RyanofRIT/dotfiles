@@ -41,3 +41,5 @@
 	ci = commit
 	co = checkout
 	br = branch 
+[hub]
+	protocol = git
