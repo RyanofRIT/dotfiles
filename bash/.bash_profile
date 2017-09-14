@@ -4,3 +4,4 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 sudo ~/bin/sustart
+xmodmap ~/.Xmodmap
