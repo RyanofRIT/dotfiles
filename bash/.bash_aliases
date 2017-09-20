@@ -15,3 +15,11 @@ chdir(){
 	mkdir "$1"
 	cd "$1"
 }
+
+gi() {
+	if [[ $@ == "tpull" ]]; then
+		command git pull
+	else
+		command git push
+	fi
+}
