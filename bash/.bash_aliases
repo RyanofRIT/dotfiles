@@ -19,7 +19,11 @@ chdir(){
 gi() {
 	if [[ $@ == "tpull" ]]; then
 		command git pull
-	else
+	elif [[ $@ == "tstatus" ]]; then
+		command git status
+	elif [[ $@ == "tpush" ]]; then
 		command git push
+	else
+		echo "what man?"
 	fi
 }
