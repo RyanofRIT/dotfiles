@@ -35,6 +35,8 @@
 	# show the detailed history of a file
 	history = "!sh -c \"git log -p -M --follow --stat -- $1\" -"
 	
+	psuh = push
+
 	# shorten standard commands
 	st = status -s
 	cl = clone
@@ -43,3 +45,9 @@
 	br = branch 
 [hub]
 	protocol = git
+[advice]
+	statusHints = false
+[diff]
+	mnemonicprefix = true
+[rerere]
+	enabled = true
