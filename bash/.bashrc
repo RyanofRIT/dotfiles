@@ -46,4 +46,4 @@ source /usr/share/bash-completion/completions/git
 
 umask 027
 
-neofetch
+# neofetch
