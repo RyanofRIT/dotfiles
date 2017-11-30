@@ -33,8 +33,6 @@ bindsym $mod+q kill
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
 
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run -i -q -fn "-benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-9" -w 200 -l 3 -x 25 -y 25 -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 bindsym $mod+d exec rofi -show run -font "${font:-Artwiz Lemon 7}"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -153,8 +151,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id vol down
 
 # Cycle wallpapers
 bindsym $mod+w exec "wal -i $HOME/Pictures/Wallpapers -o wal-set"
-exec wal -i "$(< "${HOME}/.cache/wal/wal")" -o "wal-set"
+exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")" -o "wal-set"
 
-exec polybar top
+exec --no-startup-id polybar top &
 
 bindsym $mod+z exec ~/bin/lock
