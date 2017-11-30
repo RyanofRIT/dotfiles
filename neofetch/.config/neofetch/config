@@ -35,7 +35,7 @@ print_info() {
     info "Disk" disk
     # info "Battery" battery
     # info "Font" font
-    info "Song" song
+    # info "Song" song
     info "Local IP" local_ip
     # info "Public IP" public_ip
     # info "Users" users
@@ -102,7 +102,7 @@ os_arch="off"
 # on:   '2 days, 10 hours, 3 mins'
 # off:  '2 days, 10 hours, 3 minutes'
 # tiny: '2d 10h 3m'
-uptime_shorthand="off"
+uptime_shorthand="on"
 
 
 # Shell
@@ -140,7 +140,7 @@ shell_version="on"
 # Values:  'current', 'min', 'max', 'bios',
 # Flag:    --speed_type
 # Supports: Linux with 'cpufreq'
-speed_type="bios"
+speed_type="bios_limit"
 
 # Shorten the output of the CPU function
 #
@@ -194,7 +194,7 @@ cpu_cores="logical"
 # Example:
 # on:  'Intel i7-6500U (4) @ 3.1GHz [27.2°C]'
 # off: 'Intel i7-6500U (4) @ 3.1GHz'
-cpu_temp="on"
+cpu_temp="F"
 
 
 # GPU
@@ -388,8 +388,7 @@ underline_char="-"
 #
 # Display colors 0-15 in the blocks.
 # neofetch --block_range 0 15
-start=0
-end=15
+block_range=(0 15)
 
 # Toggle color blocks
 #
@@ -610,7 +609,7 @@ ascii_colors=(distro)
 # Default: 'normal'
 # Values:  'normal', 'small'
 # Flag:    --ascii_logo_size
-ascii_logo_size="normal"
+#ascii_logo_size="normal"
 
 # Bold ascii logo
 # Whether or not to bold the ascii logo.
