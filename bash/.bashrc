@@ -27,7 +27,7 @@ if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
 
-#git hub autocompletions
+# git hub autocompletions
 if [ -f ~/dotfiles/git/.hub.bash_completion ]; then
   . ~/dotfiles/git/.hub.bash_completion
 fi
@@ -38,12 +38,7 @@ source "$HOME/.cache/wal/colors.sh"
 # Import colorscheme from 'wal'
 [[ -z "$VTE_VERSION" ]] && (wal -r &)
 
-# Auto start X.
-# [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 ]] && exec startx -- vt1 &> /dev/null
-
 # Source git autocompletions
 source /usr/share/bash-completion/completions/git
 
 umask 027
-
-# neofetch
