@@ -3,6 +3,8 @@ alias vim='nvim'
 alias t='python ~/bin/t --task-dir ~/.tasks --list tasks'
 alias git='hub'
 alias vlc='cvlc --aout=alsa --file-caching=2000 --alsa-audio-device="surround51"'
+alias anakin="sudo pacman -Rns \$(pacman -Qtdq)"
+alias neofetch="clear; neofetch"
 alias ~='cd ~'
 alias ..='cd ../'
 alias ...='cd ../../'
