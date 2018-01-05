@@ -4,3 +4,4 @@ nvim/.config/dein/cache_nvim
 nvim/.config/dein/state_nvim.vim
 *.log
 dein/
+rainbowstream/.rainbow_oauth
