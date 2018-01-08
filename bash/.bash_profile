@@ -1,5 +1,5 @@
 # Source bashrc on login
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+[[ -f ~/.bashrc ]] && source ~/.bashrc
 
 # archy computer needs to disable piezospeaker not on redar
 # setuid on shell scripts not permitted in arch due to security reasons
