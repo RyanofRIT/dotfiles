@@ -5,11 +5,11 @@ if &compatible
 endif
 set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim/
 
-if dein#load_state("~/.config/dein/")
-	call dein#begin("~/.config/dein/")
+if dein#load_state("~/.config/nvim/dein/")
+	call dein#begin("~/.config/nvim/dein/")
 
-	call dein#add("~/.config/dein/repos/github.com/Shougo/dein.vim/")
-	call dein#add('Shougo/deoplete.nvim')
+	call dein#add("~/.config/nvim/dein/repos/github.com/Shougo/dein.vim/")
+	"call dein#add('Shougo/deoplete.nvim')
 	call dein#add('tpope/vim-surround.git')
 	call dein#add('scrooloose/nerdcommenter')
 	call dein#add('airblade/vim-gitgutter')
@@ -20,6 +20,7 @@ if dein#load_state("~/.config/dein/")
 	call dein#add('tpope/tpope-vim-abolish')
 	call dein#add('tpope/vim-repeat')
 	call dein#add('godlygeek/tabular')
+	call dein#add('junegunn/limelight.vim')
 	"call dein#add('AndrewRadev/splitjoin.vim')
 	"call dein#add('raimondi/delimitmate')
 	"call dein#add('vim-syntastic/syntastic')
@@ -181,6 +182,8 @@ inoremap <leader>l <CR><CR><esc>ki<Tab><Tab>
 augroup filetypes
 	autocmd!
 	autocmd FileType python set expandtab softtabstop=4 shiftwidth=4 list
+  autocmd FileType markdown inoremap <buffer> <CR> <SPACE><SPACE><CR>
+	autocmd FileType markdown set expandtab softtabstop=2 shiftwidth=2 list
 augroup END
 
 " Tab autocomplete
@@ -217,7 +220,8 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-map! <up> <nop>
-map! <down> <nop>
+" unblocked to allow previous command at command line
+"map! <up> <nop>
+"map! <down> <nop>
 map! <left> <nop>
 map! <right> <nop>
