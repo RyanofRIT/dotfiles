@@ -147,10 +147,13 @@ gaps inner 25
 bindsym XF86AudioRaiseVolume exec --no-startup-id vol up
 bindsym XF86AudioLowerVolume exec --no-startup-id vol down
 
+# Print screen
+bindsym Print exec --no-startup-id scr
+
 # Cycle wallpapers
 bindsym $mod+w exec "wal -i $HOME/Pictures/Wallpapers -o wal-set"
 exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")" -o "wal-set"
 
-exec --no-startup-id polybar top &
+exec --no-startup-id conky -q &
 
 bindsym $mod+z exec ~/bin/lock
