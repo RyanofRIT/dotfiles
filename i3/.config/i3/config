@@ -154,6 +154,4 @@ bindsym Print exec --no-startup-id scr
 bindsym $mod+w exec "wal -i $HOME/Pictures/Wallpapers -o wal-set"
 exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")" -o "wal-set"
 
-exec --no-startup-id conky -q &
-
 bindsym $mod+z exec ~/bin/lock

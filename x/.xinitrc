@@ -4,11 +4,21 @@
 
 if [ "$HOSTNAME" = archy ]; then
 	xrandr --output "$MONITOR1" --primary --mode 1920x1080 --output "$MONITOR2" --mode 1920x1080
+
+	# setup conky
+	conky -q &
+	conky -x 1920 -q &
 else
 	xrandr --output "$MONITOR1" --primary --mode 3840x2160 --output "$MONITOR2" --mode 3840x2160
 	xrandr --output "$MONITOR1" --left-of "$MONITOR2"
+
+	# setup conky
+	conky -q &
+	conky -x 3840 -q &
+
 	if [ $(xrandr | grep "\ connected" | wc -l) = 3 ]; then
 		xrandr --output "HDMI-0" --right-of "$MONITOR2"
+		conky -x 5760 -q &
 	fi
 fi
 
