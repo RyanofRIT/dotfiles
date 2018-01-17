@@ -8,7 +8,7 @@
     "PREFIX": "#owner#place#me#keyword", 
     "SEARCH_TYPE": "mixed", 
     "SEARCH_MAX_RECORD": 5, 
-    "HOME_TWEET_NUM": 5, 
+    "HOME_TWEET_NUM": 15, 
     "RETWEETS_SHOW_NUM": 5, 
     "CONVERSATION_MAX": 30, 
     "QUOTE_FORMAT": "#comment https://twitter.com/#owner/status/#tid", 
