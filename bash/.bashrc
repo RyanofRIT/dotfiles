@@ -1,6 +1,9 @@
 # Set the prompt.
 export PS1="$USER \w \[$(tput setaf 5)\]>\[$(tput sgr0)\]"
 
+#force steam scaling
+export GDK_SCALE=1
+
 # Set nvim as editor.
 export EDITOR="nvim"
 
