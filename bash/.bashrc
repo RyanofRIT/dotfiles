@@ -1,7 +1,9 @@
-# Set the prompt.
-export PS1="$USER \w \[$(tput setaf 5)\]>\[$(tput sgr0)\]"
+#!/bin/bash
 
-#force steam scaling
+# Set the prompt.
+export PS1="[\A] \w >\[$(tput sgr0)\] "
+
+# Force steam scaling (undo hidpi correction)
 export GDK_SCALE=1
 
 # Set nvim as editor.
@@ -28,6 +30,8 @@ shopt -s checkwinsize
 
 # Enable extended globbing allowing composite patterns
 shopt -s extglob
+
+complete -d cd
 
 # ALIASES
 if [ -f ~/.bash_aliases ]; then
