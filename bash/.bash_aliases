@@ -35,6 +35,13 @@ alias twitter='rainbowstream'
 alias mine='ethminer -U --farm-recheck 200 -S u1.ethermine.org:4444 -FS us1.ethermine.org:4444 -O 7fae523edfc0a637e51a13fd3457a0a1c8219676.redar'
 alias geth='geth --rpc --rpccorsdomain="http://ethertweet.net"'
 
+# Open spotify web
+# --app opens in own window with no toolbar or url bar
+alias music='chromium --app="https://open.spotify.com/collection/playlists" &>/dev/null'
+
+# Open plex as app
+alias plex='chromium --app="https://app.plex.tv" &>/dev/null'
+
 # Create directory paths and cd into them in one command
 chdir(){
 	mkdir -p "$1"
