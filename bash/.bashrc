@@ -33,9 +33,6 @@ shopt -s extglob
 
 complete -d cd
 
-# disable access control so docker containers can attach to x11 server
-xhost +
-
 # ALIASES
 if [ -f ~/.bash_aliases ]; then
 	source ~/.bash_aliases
