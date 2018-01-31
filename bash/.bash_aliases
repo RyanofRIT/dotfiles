@@ -31,6 +31,12 @@ alias sl='ls'
 alias rainbowstream='docker run -it --rm -v /etc/localtime:/etc/localtime:ro -v $HOME/.rainbow_oauth:/root/.rainbow_oauth -v $HOME/.rainbow_config.json:/root/.rainbow_config.json --name rainbowstream jess/rainbowstream'
 alias twitter='rainbowstream'
 
+# Openvpn docker to run other containers through
+alias opendocker='docker build -t vpn ~/Documents/dockerfiles/openvpn/; sudo docker run --rm -it --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -v /home/mainuser/Documents/openvpn/ovpn_tcp:/vpn vpn'
+
+# Firefox through vpn
+alias firefoxdocker='docker run --rm -it --net container:vpn -v /tmp/.X11-unix/:/tmp/.X11-unix/ -e DISPLAY=unix:0 --name firefox jess/firefox'
+
 # Ethereum mining command
 alias mine='ethminer -U --farm-recheck 200 -S u1.ethermine.org:4444 -FS us1.ethermine.org:4444 -O 7fae523edfc0a637e51a13fd3457a0a1c8219676.redar'
 alias geth='geth --rpc --rpccorsdomain="http://ethertweet.net"'
