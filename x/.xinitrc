@@ -28,6 +28,9 @@ xset m 1/1
 
 xmodmap ~/.Xmodmap
 
+# disable access control so docker containers can attach to x11 server
+xhost +
+
 # compton config at ~.compton.conf fixes some bugs with x and i3
 compton &
 dunst &

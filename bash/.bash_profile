@@ -8,5 +8,3 @@ if [ "$HOSTNAME" = archy ]; then
 	sudo ~/bin/sustart
 fi
 
-# disable access control so docker containers can attach to x11 server
-xhost +
