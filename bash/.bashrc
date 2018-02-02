@@ -18,6 +18,12 @@ PATH="$PATH:$HOME/bin/npm-global/bin"
 # Set XDG_CONFIG_HOME
 export XDG_CONFIG_HOME="${HOME}/.config"
 
+# Set XDG_CACHE_HOME
+export XDG_CACHE_HOME="${HOME}/.cache"
+
+# Force nvidia shader disk cache location
+export __GL_SHADER_DISK_CACHE_PATH=XDG_CACHE_HOME
+
 # History completion.
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
