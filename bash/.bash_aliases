@@ -33,17 +33,17 @@ alias twitter='rainbowstream'
 
 # Openvpn docker to run other containers through
 # TODO: currently needs NordVPN DNS servers set in /etc/resolv.conf but this is not automatic
-alias opendocker='docker build -t vpn ~/Documents/dockerfiles/openvpn/; sudo docker run --rm -it --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -v /home/mainuser/Documents/openvpn/ovpn_tcp:/vpn vpn'
+alias opendocker='docker build -t vpn ~/Documents/dockerfiles/openvpn/; sudo docker run --rm -it -m 4G --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -v /home/mainuser/Documents/openvpn/ovpn_tcp:/vpn vpn'
 
 # Firefox through vpn
-alias firefoxdocker='docker run --rm -it --net container:vpn -v /tmp/.X11-unix/:/tmp/.X11-unix/ -e DISPLAY=unix:0 --name firefox jess/firefox'
+alias firefoxdocker='docker run --rm -it -m 4G --net container:vpn -v /tmp/.X11-unix/:/tmp/.X11-unix/ -e DISPLAY=unix:0 --name firefox jess/firefox'
 
 # Run transmission through vpn container network
 # Local connection through vpn ip (via docker inspect)
-alias transmission='docker run --rm -it --net container:vpn --name transmission -e PUID=1000 -e PGID=1000 -v ~/.local/share/transmission:/var/lib/transmission-daemon -d dperson/transmission'
+alias transmission='docker run --rm -it -m 4G --net container:vpn --name transmission -e PUID=1000 -e PGID=1000 -v ~/.local/share/transmission:/var/lib/transmission-daemon -d dperson/transmission'
 
 # PlexPy monitoring
-alias plexpy='docker run -d --name plexpy -v ~/.local/share/plexpy/:/data -p 8181:8181 r.j3ss.co/plexpy'
+alias plexpy='docker run -d --name plexpy -m 4G -v ~/.local/share/plexpy/:/data -p 8181:8181 r.j3ss.co/plexpy'
 
 # Ethereum mining command
 alias mine='ethminer -U --farm-recheck 200 -S u1.ethermine.org:4444 -FS us1.ethermine.org:4444 -O 7fae523edfc0a637e51a13fd3457a0a1c8219676.redar'
