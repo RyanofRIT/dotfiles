@@ -40,18 +40,18 @@ alias firefoxdocker='docker run --rm -it -m 4G --net container:vpn -v /tmp/.X11-
 
 # Run transmission through vpn container network
 # Local connection through vpn ip (via docker inspect)
-alias transmission='docker run --rm -it -m 4G --net container:vpn --name transmission -e PUID=1000 -e PGID=1000 -v ~/.local/share/transmission:/var/lib/transmission-daemon -d dperson/transmission'
+alias transmission='docker run -it -m 4G --net container:vpn --name transmission -e PUID=1000 -e PGID=1000 -v ~/.local/share/transmission:/var/lib/transmission-daemon -d dperson/transmission'
 
 # PlexPy monitoring
-alias plexpy='docker run -d --name plexpy -m 4G -v ~/.local/share/plexpy/:/data -p 8181:8181 r.j3ss.co/plexpy'
+alias plexpy='docker run -d --rm --name plexpy -m 4G -v ~/.local/share/plexpy/:/data -p 8181:8181 r.j3ss.co/plexpy'
+
+# Open spotify app
+alias spotify='docker run --rm -d -m 4G -v /etc/localtime:/etc/localtime:ro -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=:0 --device /dev/snd:/dev/snd -v /home/mainuser/.config/.spotify/config:/home/spotify/.config/spotify -v /home/mainuser/.cache/.spotify/cache:/home/spotify/spotify --name spotify jess/spotify'
 
 # Ethereum mining command
 alias mine='ethminer -U --farm-recheck 200 -S u1.ethermine.org:4444 -FS us1.ethermine.org:4444 -O 7fae523edfc0a637e51a13fd3457a0a1c8219676.redar'
 alias geth='geth --rpc --rpccorsdomain="http://ethertweet.net"'
 
-# Open spotify web
-# --app opens in own window with no toolbar or url bar
-alias music='chromium --app="https://open.spotify.com/collection/playlists" &>/dev/null'
 
 # Open plex as app
 alias plex='chromium --app="https://app.plex.tv" &>/dev/null'
