@@ -9,7 +9,7 @@ if dein#load_state("~/.config/nvim/dein/")
 	call dein#begin("~/.config/nvim/dein/")
 
 	call dein#add("~/.config/nvim/dein/repos/github.com/Shougo/dein.vim/")
-	"call dein#add('Shougo/deoplete.nvim')
+	call dein#add('Shougo/deoplete.nvim')
 	call dein#add('tpope/vim-surround.git')
 	call dein#add('scrooloose/nerdcommenter')
 	call dein#add('airblade/vim-gitgutter')
@@ -21,6 +21,7 @@ if dein#load_state("~/.config/nvim/dein/")
 	call dein#add('tpope/vim-repeat')
 	call dein#add('godlygeek/tabular')
 	call dein#add('junegunn/limelight.vim')
+	call dein#add('junegunn/goyo.vim')
 	"call dein#add('AndrewRadev/splitjoin.vim')
 	"call dein#add('raimondi/delimitmate')
 	"call dein#add('vim-syntastic/syntastic')
@@ -52,7 +53,7 @@ let g:deoplete#enable_at_startup = 1
 
  " }}}
 " Colors {{{
-"colorscheme molokai
+"`colorscheme molokai
 "set background=dark
 
 " set syntax highlighting for express templates to html
@@ -184,6 +185,25 @@ augroup filetypes
 	autocmd FileType python set expandtab softtabstop=4 shiftwidth=4 list
   autocmd FileType markdown inoremap <buffer> <CR> <SPACE><SPACE><CR>
 	autocmd FileType markdown set expandtab softtabstop=2 shiftwidth=2 list
+	autocmd FileType text set textwidth=80
+	autocmd FileType text colorscheme molokai
+	autocmd FileType text Limelight
+augroup END
+
+
+function! s:auto_goyo()
+  if &ft == 'text'
+    Goyo 80
+  elseif exists('#goyo')
+    let bufnr = bufnr('%')
+    Goyo!
+    execute 'b '.bufnr
+  endif
+endfunction
+
+augroup goyo_markdown
+  autocmd!
+  autocmd BufNewFile,BufRead * call s:auto_goyo()
 augroup END
 
 " Tab autocomplete
