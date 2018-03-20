@@ -1,6 +1,7 @@
 #!/bin/bash
 
-alias lls='ls -la'
+alias lls='ls -lah'
+alias du='du -h'
 
 # Use neovim instead of vim
 alias vim='nvim'
@@ -40,7 +41,7 @@ alias firefoxdocker='docker run --rm -it -m 4G --net container:vpn -v /tmp/.X11-
 
 # Run transmission through vpn container network
 # Local connection through vpn ip (via docker inspect)
-alias transmission='docker run -it -m 4G --net container:vpn --name transmission -e PUID=1000 -e PGID=1000 -v ~/.local/share/transmission:/var/lib/transmission-daemon -d dperson/transmission'
+alias transmission='docker run --rm -it -m 4G --net container:vpn --name transmission -e PUID=1000 -e PGID=1000 -v ~/.local/share/transmission:/var/lib/transmission-daemon -d dperson/transmission'
 
 # PlexPy monitoring
 alias plexpy='docker run -d --rm --name plexpy -m 4G -v ~/.local/share/plexpy/:/data -p 8181:8181 r.j3ss.co/plexpy'
