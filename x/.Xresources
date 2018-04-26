@@ -6,6 +6,56 @@ Xft.hintstyle: hintfull
 Xft.rgba: none
 Xft.lcdfilter: lcddefault
 
+! =============
+! === Color ===
+! =============
+! (Monokai Remastered)
+
+*.foreground:  #d9d9d9
+*.background:  #0c0c0c
+*.cursorColor: #fc971f
+!
+! Black
+*.color0:      #1a1a1a
+*.color8:      #625e4c
+!
+! Red
+*.color1:      #f4005f
+*.color9:      #f4005f
+!
+! Green
+*.color2:      #98e024
+*.color10:     #98e024
+!
+! Yellow
+*.color3:      #fd971f
+*.color11:     #e0d561
+!
+! Blue
+*.color4:      #9d65ff
+*.color12:     #9d65ff
+!
+! Magenta
+*.color5:      #f4005f
+*.color13:     #f4005f
+!
+! Cyan
+*.color6:      #58d1eb
+*.color14:     #58d1eb
+!
+! White
+*.color7:      #c4c5b5
+*.color15:     #f6f6ef
+!
+! Bold, Italic, Underline
+*.colorBD:     #ebebeb
+!*.colorIT:
+!*.colorUL:
+
+! =============
+! === URxvt ===
+! =============
+
 URxvt.font: xft:DroidSansMono:size=10:antialias=true
 URxvt.letterSpace: -1
 
@@ -28,5 +78,35 @@ URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
-! special
-rofi.hide-scrollbar: true
+
+! =============
+! === rofi ===
+! =============
+
+rofi.modi:                           run
+rofi.sidebar-mode:                   false
+rofi.terminal:                       URxvtc
+rofi.ssh-client:                     ssh
+rofi.ssh-command:                    {terminal} -e "{ssh-client} {host}"
+rofi.opacity:                        100
+rofi.width:                          22
+rofi.lines:                          8
+rofi.columns:                        1
+rofi.font:                           DroidSansMono 10
+
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-normal: #9d65ff,  #FFFFFF,  #9d65ff,  #fc971f,  #FFFFFF
+
+!                  'background', 'border'
+rofi.color-window: #9d65ff,      #7b43dd
+rofi.bw:                             10
+rofi.location:                       0
+rofi.padding:                        20
+rofi.levenshtein-sort:               true
+rofi.case-sensitive:                 false
+rofi.fuzzy:                          false
+rofi.line-margin:                    2
+rofi.separator-style:                solid
+rofi.hide-scrollbar:                 true
+rofi.markup-rows:                    false
+rofi.scrollbar-width:                8
