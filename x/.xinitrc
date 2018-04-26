@@ -9,10 +9,16 @@ else
 	xrandr --output "$MONITOR1" --primary --mode 3840x2160 --output "$MONITOR2" --mode 3840x2160
 	xrandr --output "$MONITOR1" --left-of "$MONITOR2"
 
+	xwinwrap -g 3840x2160+0+0 -ov -ni -- mpv -wid WID --loop --autofit-smaller=3840x2160 ~/Downloads/other_animated_walls/ram.mp4 &
+
+	xwinwrap -g 3840x2160+3840+0 -ov -ni -- mpv -wid WID --loop --autofit-smaller=3840x2160 ~/Downloads/other_animated_walls/8bit.mkv &
+
 	if [ $(xrandr | grep "\ connected" | wc -l) = 3 ]; then
 		xrandr --output "HDMI-0" --right-of "$MONITOR2"
+		xwinwrap -g 1920x1080+7680+0 -ov -ni -- mpv -wid WID --loop ~/Pictures/Wallpapers/daft_punk_animated_2.mp4 &
 	fi
 fi
+
 
 # xset is a user preference utility for x. m sets mouse acceleration and threshold 
 xset m 1/1
