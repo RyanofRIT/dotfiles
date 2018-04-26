@@ -1,6 +1,7 @@
 #!/bin/bash
-
-alias lls='ls -lah'
+alias grep='grep --color=auto'
+alias ls='ls --color=auto'
+alias lls='ls -lah --color=auto'
 alias du='du -h'
 
 # Use neovim instead of vim
