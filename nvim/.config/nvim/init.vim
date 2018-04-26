@@ -53,8 +53,8 @@ let g:deoplete#enable_at_startup = 1
 
  " }}}
 " Colors {{{
-"`colorscheme molokai
-"set background=dark
+colorscheme molokai
+set background=dark
 
 " set syntax highlighting for express templates to html
 au BufNewFile,BufRead,BufReadPost *.ejs set syntax=html
@@ -90,7 +90,7 @@ set shiftwidth=2
 " UI Layout {{{
 
 " show line numbers
-set number
+"set number
 
 " show last command in the bottom bar
 set showcmd
