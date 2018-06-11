@@ -2,7 +2,7 @@
 [global]
 
     frame_width = 0
-    font = Artwiz Lemon 7
+    font = DroidSansMono 7
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
@@ -60,7 +60,7 @@
     # Show age of message if message is older than show_age_threshold
     # seconds.
     # Set to -1 to disable.
-    show_age_threshold = 60
+    show_age_threshold = -1
 
     # Split notifications into multiple lines if they don't fit into
     # geometry.
@@ -167,7 +167,7 @@
     icon_position = off
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    #icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
 [shortcuts]
 
@@ -190,16 +190,10 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#f0f0f0"
-    foreground = "#2b3635"
     timeout = 10
 
 [urgency_normal]
-    background = "#f0f0f0"
-    foreground = "#2b3635"
     timeout = 10
 
 [urgency_critical]
-    background = "#f0f0f0"
-    foreground = "#99736e"
     timeout = 0

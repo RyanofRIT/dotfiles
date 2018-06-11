@@ -30,15 +30,10 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+q kill
 
 # Set colors from Xresources
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $fg i3wm.foreground #ffffff
+set_from_resource $bg i3wm.background #dddddd
 
-bindsym $mod+d exec rofi -show run -font "${font:-Artwiz Lemon 7}"
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec rofi -show run -font "${font:-DroidSansMono 10}"
 
 # change focus
 bindsym $mod+h focus left
@@ -62,7 +57,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # toggle tiling / floating
-bindsym $mod+s floating toggle
+bindsym $mod+p floating toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -91,16 +86,16 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-workspace 1 output "${MONITOR1}"
-workspace 2 output "${MONITOR1}"
-workspace 3 output "${MONITOR1}"
-workspace 4 output "${MONITOR1}"
-workspace 5 output "${MONITOR1}"
-workspace 6 output "${MONITOR2}"
-workspace 7 output "${MONITOR2}"
-workspace 8 output "${MONITOR2}"
-workspace 9 output "${MONITOR2}"
-workspace 20 output "${MONITOR2}"
+workspace 1 output DP-2
+workspace 2 output DP-2
+workspace 3 output DP-2
+workspace 4 output DP-2
+workspace 5 output DP-2
+workspace 6 output DP-4
+workspace 7 output DP-4
+workspace 8 output DP-4
+workspace 9 output DP-4
+workspace 10 output DP-4
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -129,19 +124,19 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# class			        border	backgr.	text	indicator	child_border
-client.focused          #ffffff #ffffff #ffffff #ffffff #ffffff 
-client.focused_inactive $bg		$bg		$fg		$bg		$bg
-client.unfocused        $bg		$bg		$fg		$bg		$bg
-client.urgent           $bg		$bg		$fg		$bg		$bg
-client.placeholder      $bg		$bg		$fg		$bg		$bg
+# class									border		backgr.		text	indicator		child_border
+client.focused					"#fc971f"				$bg				$fg		$bg					"#fc971f"
+client.focused_inactive $bg				$bg				$fg		$bg					$bg
+client.unfocused        $bg				$bg				$fg		$bg					$bg
+client.urgent           $bg				$bg				$fg		$bg					$bg
+client.placeholder      $bg				$bg				$fg		$bg					$bg
 
 # Add a 1px border to all windows
 for_window [class="^.*"] border pixel 1
 
 smart_borders on
 smart_gaps on
-gaps inner 25
+gaps inner 20
 
 # Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id vol up
@@ -150,8 +145,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id vol down
 # Print screen
 bindsym Print exec --no-startup-id scr
 
-# Cycle wallpapers
-bindsym $mod+w exec "wal -i $HOME/Pictures/Wallpapers -o wal-set"
-exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")" -o "wal-set"
+# Change audio output
+bindsym $mod+s exec "$HOME/bin/audio_switch"
 
 bindsym $mod+z exec ~/bin/lock
