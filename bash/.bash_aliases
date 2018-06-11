@@ -30,15 +30,11 @@ alias twitter='rainbowstream'
 
 # Openvpn docker to run other containers through
 # TODO: currently needs NordVPN DNS servers set in /etc/resolv.conf but this is not automatic
-alias opendocker='docker build -t vpn ~/Documents/dockerfiles/openvpn/; sudo docker run --rm -it -m 4G --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -v /home/mainuser/Documents/openvpn/ovpn_tcp:/vpn vpn'
+alias opendocker='docker build -t vpn ~/Documents/dockerfiles/openvpn/; sudo docker run --rm -it -m 4G --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -v /home/mainuser/Documents/dockerfiles/openvpn-configs/ovpn_tcp:/vpn vpn'
 
 # Run transmission through vpn container network
 # Local connection through vpn ip (via docker inspect)
-alias transmission='docker run --rm -it -m 4G --net container:vpn --name transmission -e PUID=1000 -e PGID=1000 -v ~/.local/share/transmission:/var/lib/transmission-daemon -d dperson/transmission'
-
-# Ethereum mining command
-alias mine='ethminer -U --farm-recheck 200 -S u1.ethermine.org:4444 -FS us1.ethermine.org:4444 -O 7fae523edfc0a637e51a13fd3457a0a1c8219676.redar'
-alias geth='geth --rpc --rpccorsdomain="http://ethertweet.net"'
+alias transmission='docker run --rm -it -m 4G --net container:vpn --name transmission -e PUID=1000 -e PGID=1000 -v /media/raid/transmission/:/var/lib/transmission-daemon -d dperson/transmission'
 
 # Create directory paths and cd into them in one command
 chdir(){
