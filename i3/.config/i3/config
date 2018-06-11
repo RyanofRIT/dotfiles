@@ -132,11 +132,11 @@ client.urgent           $bg				$bg				$fg		$bg					$bg
 client.placeholder      $bg				$bg				$fg		$bg					$bg
 
 # Add a 1px border to all windows
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 7
 
 smart_borders on
 smart_gaps on
-gaps inner 20
+gaps inner 0
 
 # Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id vol up
@@ -146,6 +146,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id vol down
 bindsym Print exec --no-startup-id scr
 
 # Change audio output
-bindsym $mod+s exec "$HOME/bin/audio_switch"
+bindsym $mod+s exec ~/bin/audio_switch
 
 bindsym $mod+z exec ~/bin/lock
+bindsym $mod+u exec ~/bin/focus_pid
