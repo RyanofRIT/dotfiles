@@ -9,9 +9,9 @@ else
 	xrandr --output "$MONITOR1" --primary --mode 3840x2160 --output "$MONITOR2" --mode 3840x2160
 	xrandr --output "$MONITOR1" --left-of "$MONITOR2"
 
-	xwinwrap -g 3840x2160+0+0 -ov -ni -- mpv -wid WID --loop --autofit-smaller=3840x2160 ~/Downloads/other_animated_walls/ram.mp4 &
+	xwinwrap -g 3840x2160+0+0 -ov -ni -- mpv -wid WID --loop --autofit-smaller=3840x2160 ~/Pictures/Wallpapers/ram.mp4 &
 
-	xwinwrap -g 3840x2160+3840+0 -ov -ni -- mpv -wid WID --loop --autofit-smaller=3840x2160 ~/Downloads/other_animated_walls/8bit.mkv &
+	xwinwrap -g 3840x2160+3840+0 -ov -ni -- mpv -wid WID --loop --autofit-smaller=3840x2160 ~/Pictures/Wallpapers/Nightride.mkv &
 
 	if [ $(xrandr | grep "\ connected" | wc -l) = 3 ]; then
 		xrandr --output "HDMI-0" --right-of "$MONITOR2"
