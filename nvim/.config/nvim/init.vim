@@ -9,19 +9,52 @@ if dein#load_state("~/.config/nvim/dein/")
 	call dein#begin("~/.config/nvim/dein/")
 
 	call dein#add("~/.config/nvim/dein/repos/github.com/Shougo/dein.vim/")
+
+	" Autocompletion
 	call dein#add('Shougo/deoplete.nvim')
+
+	" Typescript syntax
+	call dein#add('HerringtonDarkholme/yats.vim')
+	" Typescript specific autocompletion on top of deoplete 
+	" (after npm install neovim/typescript)
+	call dein#add('mhartington/nvim-typescript', {'build':'./install.sh'})
+
+	" Surrounding commands
+	" cs12 - change surr 
+	" cst2 - change surr to 
+	" ysiw1 -you surr inner word
+	" ds1  - delete surr
 	call dein#add('tpope/vim-surround.git')
+
+	" Commenting with <leader>
+	" cc, cn (nesting), c<space> (toggle), cy (cc but yank), c$, cu (uncomments)
 	call dein#add('scrooloose/nerdcommenter')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('vim-airline/vim-airline')
 	call dein#add('rstacruz/sparkup.git')
+
+	" Supposedly matches if with endif etc based on language
 	call dein#add('tpope/vim-endwise')
+
+	" <C-A> and <C-X> work on dates
 	call dein#add('tpope/vim-speeddating')
+
+	" abbr gen "Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or} {despe,sepa}rat{}
+	" :Subvert/facilit{y,ies}/building{,s}/g
+	" crs (coerce to snake_case). MixedCase (crm), camelCase (crc), snake_case
+	" (crs), UPPER_CASE (cru), dash-case (cr-), dot.case (cr.), space case
+	" (cr<space>), and Title Case (crt)
 	call dein#add('tpope/tpope-vim-abolish')
+
+	" . now repeats plugin mappings (may need to explicitly add support)
 	call dein#add('tpope/vim-repeat')
+
+	" :Tab /: to line things up on :
 	call dein#add('godlygeek/tabular')
+
 	call dein#add('junegunn/limelight.vim')
 	call dein#add('junegunn/goyo.vim')
+
 	"call dein#add('AndrewRadev/splitjoin.vim')
 	"call dein#add('raimondi/delimitmate')
 	"call dein#add('vim-syntastic/syntastic')
@@ -30,6 +63,7 @@ if dein#load_state("~/.config/nvim/dein/")
 	call dein#end()
 	call dein#save_state()
 endif
+
 
 " gitgutter config
 let g:gitgutter_realtime = 1 "update when done typing
@@ -125,8 +159,8 @@ set mat=2
 
 set foldenable
 set foldlevelstart=60 " depth at which to start folding
-set foldnestmax=10 " don't allow to many folds
-set foldmethod=indent " vs marker, manual, expr, syntax, or diff
+set foldnestmax=10 " don't allow to0 many folds
+set foldmethod=syntax " vs marker, manual, expr, syntax, or diff
 nnoremap <space> za
 
 " }}}
@@ -234,14 +268,3 @@ set nowritebackup
 " }}}
 autocmd VimEnter * echo ">^.^< LOL XD"
 " vim:foldmethod=marker:foldlevel=0
-
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
-" unblocked to allow previous command at command line
-"map! <up> <nop>
-"map! <down> <nop>
-map! <left> <nop>
-map! <right> <nop>
