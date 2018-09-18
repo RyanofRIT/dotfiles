@@ -150,3 +150,6 @@ bindsym $mod+s exec ~/bin/audio_switch
 
 bindsym $mod+z exec ~/bin/lock
 bindsym $mod+u exec ~/bin/focus_pid
+bindsym $mod+t exec ~/bin/time
+bindsym $mod+b exec ~/bin/bat
+
