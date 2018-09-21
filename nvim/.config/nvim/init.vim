@@ -15,13 +15,13 @@ if dein#load_state("~/.config/nvim/dein/")
 
 	" Typescript syntax
 	call dein#add('HerringtonDarkholme/yats.vim')
-	" Typescript specific autocompletion on top of deoplete 
+	" Typescript specific autocompletion on top of deoplete
 	" (after npm install neovim/typescript)
-	call dein#add('mhartington/nvim-typescript', {'build':'./install.sh'})
+	"call dein#add('mhartington/nvim-typescript', {'build':'./install.sh'})
 
 	" Surrounding commands
-	" cs12 - change surr 
-	" cst2 - change surr to 
+	" cs12 - change surr
+	" cst2 - change surr to
 	" ysiw1 -you surr inner word
 	" ds1  - delete surr
 	call dein#add('tpope/vim-surround.git')
@@ -92,6 +92,7 @@ set background=dark
 
 " set syntax highlighting for express templates to html
 au BufNewFile,BufRead,BufReadPost *.ejs set syntax=html
+au BufNewFile,BufRead,BufReadPost *.ts set syntax=typescript
 
 " }}}
 " Misc {{{
