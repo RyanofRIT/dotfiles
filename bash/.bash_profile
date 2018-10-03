@@ -1,3 +1,13 @@
+# Add ~/bin to path
+PATH="$PATH:$HOME/bin"
+
+# Add global node modules to path
+PATH="$PATH:$HOME/.node_modules/bin"
+
+# Ruby gems
+PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export GEM_HOME=$HOME/.gem
+
 # Source bashrc on login
 [[ -f ~/.bashrc ]] && source ~/.bashrc
 

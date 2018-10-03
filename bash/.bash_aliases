@@ -38,8 +38,10 @@ alias transmission='docker run --rm -it -m 4G --net container:vpn --name transmi
 
 # Create directory paths and cd into them in one command
 chdir(){
-	mkdir -p "$1"
-	cd "$1"
+	# -- following will not get parsed as options
+	mkdir -p -- "$1" &&
+	# -P resolved symbolic links
+	cd -P "$1"
 }
 
 # poor way of trying to correct some command git command mistypes (gi tstatus)

@@ -9,12 +9,6 @@ export GDK_SCALE=1
 # Set nvim as editor.
 export EDITOR="nvim"
 
-# Add ~/bin to path
-PATH="$PATH:$HOME/bin"
-
-# Add global node modules to path
-PATH="$PATH:$HOME/.node_modules/bin"
-
 # Set XDG_CONFIG_HOME
 export XDG_CONFIG_HOME="${HOME}/.config"
 
