@@ -1,5 +1,5 @@
 " Dein Setup {{{
-
+" TODO set makeprg=shellcheck\ -f\ gcc\ %
 if &compatible
 	set nocompatible
 endif
@@ -23,7 +23,7 @@ if dein#load_state("~/.config/nvim/dein/")
 	" cs12 - change surr
 	" cst2 - change surr to
 	" ysiw1 -you surr inner word
-	" ds1  - delete surr
+	" ds1	- delete surr
 	call dein#add('tpope/vim-surround.git')
 
 	" Commenting with <leader>
@@ -58,7 +58,7 @@ if dein#load_state("~/.config/nvim/dein/")
 	"call dein#add('AndrewRadev/splitjoin.vim')
 	"call dein#add('raimondi/delimitmate')
 	"call dein#add('vim-syntastic/syntastic')
-  "tpope/vim-eunuch
+	"tpope/vim-eunuch
 
 	call dein#end()
 	call dein#save_state()
@@ -171,13 +171,9 @@ nnoremap <space> za
 nnoremap j gj
 nnoremap k gk
 
-
 " move to the beginning/end of the line
 nnoremap B ^
 nnoremap E $
-nnoremap ^ <nop>
-nnoremap $ <nop>
-
 
 " leader is set to comma
 let mapleader=","
@@ -212,13 +208,17 @@ nnoremap <c-k> ddkP
 nnoremap <leader>j :lnext<CR>
 nnoremap <leader>k :lprevious<CR>
 
+nnoremap <leader>n :cnext<CR>
+nnoremap <leader>p :cprevious<CR>
+
 " Indented enter (mostly for html editting)
 inoremap <leader>l <CR><CR><esc>ki<Tab><Tab>
 
 augroup filetypes
 	autocmd!
 	autocmd FileType python set expandtab softtabstop=4 shiftwidth=4 list
-  autocmd FileType markdown inoremap <buffer> <CR> <SPACE><SPACE><CR>
+	autocmd FileType sh set makeprg=shellcheck\ -f\ gcc\ %
+	autocmd FileType markdown inoremap <buffer> <CR> <SPACE><SPACE><CR>
 	autocmd FileType markdown set expandtab softtabstop=2 shiftwidth=2 list
 	autocmd FileType text set textwidth=80
 	autocmd FileType text colorscheme molokai
@@ -227,18 +227,18 @@ augroup END
 
 
 function! s:auto_goyo()
-  if &ft == 'text'
-    Goyo 80
-  elseif exists('#goyo')
-    let bufnr = bufnr('%')
-    Goyo!
-    execute 'b '.bufnr
-  endif
+	if &ft == 'text'
+		Goyo 80
+	elseif exists('#goyo')
+		let bufnr = bufnr('%')
+		Goyo!
+		execute 'b '.bufnr
+	endif
 endfunction
 
 augroup goyo_markdown
-  autocmd!
-  autocmd BufNewFile,BufRead * call s:auto_goyo()
+	autocmd!
+	autocmd BufNewFile,BufRead * call s:auto_goyo()
 augroup END
 
 " Tab autocomplete
