@@ -3,6 +3,11 @@ alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias lls='ls -lah --color=auto'
 alias du='du -h'
+alias df='df -h'
+
+alias cpg="rsync --partial --progress --append --rsh=ssh -r -h "
+alias mvg="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
+
 
 # Use neovim instead of vim
 alias vim='nvim'
@@ -34,7 +39,9 @@ alias opendocker='docker build -t vpn ~/Documents/dockerfiles/openvpn/; sudo doc
 
 # Run transmission through vpn container network
 # Local connection through vpn ip (via docker inspect)
-alias transmission='docker run --rm -it -m 4G --net container:vpn --name transmission -e PUID=1000 -e PGID=1000 -v /media/raid/transmission/:/var/lib/transmission-daemon -d dperson/transmission'
+alias transmission_sonarr='docker run -it -m 4G --net container:vpn --name transmission_sonarr -e PUID=1000 -e PGID=1000 -v /media/raid/transmission_sonarr/:/var/lib/transmission-daemon -d dperson/transmission'
+alias transmission_radarr='docker run -it -m 4G --net container:vpn --name transmission_radarr -e PUID=1000 -e PGID=1000 -v /media/raid/transmission_radarr/:/var/lib/transmission-daemon -d dperson/transmission'
+alias transmission_blutop='docker run -it -m 4G -p 9091:9091 --name transmission_blutop -e PUID=1000 -e PGID=1000 -v /media/raid/transmission_blutop/:/var/lib/transmission-daemon -d dperson/transmission'
 
 # Create directory paths and cd into them in one command
 chdir(){

@@ -3,6 +3,7 @@ PATH="$PATH:$HOME/bin"
 
 # Add global node modules to path
 PATH="$PATH:$HOME/.node_modules/bin"
+export npm_config_prefix=~/.node_modules
 
 # Ruby gems
 PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
