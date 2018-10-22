@@ -53,8 +53,8 @@ if dein#load_state("~/.config/nvim/dein/")
 	" :Tab /: to line things up on :
 	call dein#add('godlygeek/tabular')
 
-	call dein#add('junegunn/limelight.vim')
-	call dein#add('junegunn/goyo.vim')
+	"call dein#add('junegunn/limelight.vim')
+	"call dein#add('junegunn/goyo.vim')
 
 	"call dein#add('AndrewRadev/splitjoin.vim')
 	"call dein#add('raimondi/delimitmate')
@@ -65,7 +65,6 @@ if dein#load_state("~/.config/nvim/dein/")
 	call dein#save_state()
 endif
 
-
 " gitgutter config
 let g:gitgutter_realtime = 1 "update when done typing
 set updatetime=250 "instead of 4 second default
@@ -74,7 +73,6 @@ nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
 
 let g:sparkupExecuteMapping = 'kk'
-
 
 " Required for dein
 filetype plugin indent on
@@ -255,22 +253,6 @@ augroup filetypes
 	autocmd FileType text Limelight
 augroup END
 
-
-function! s:auto_goyo()
-	if &ft == 'text'
-		Goyo 80
-	elseif exists('#goyo')
-		let bufnr = bufnr('%')
-		Goyo!
-		execute 'b '.bufnr
-	endif
-endfunction
-
-augroup goyo_markdown
-	autocmd!
-	autocmd BufNewFile,BufRead * call s:auto_goyo()
-augroup END
-
 " Tab autocomplete
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" :
 	\ <SID>check_back_space() ? "\<TAB>" :
@@ -306,10 +288,6 @@ fun! TSV()
 	wincmd k
 	set scrollbind
 	wincmd j
-endfun
-
-fun! Require(module)
-	return "const ".a:module." = require('".a:module."');"
 endfun
 
 " }}}
