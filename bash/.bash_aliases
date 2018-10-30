@@ -4,6 +4,7 @@ alias ls='ls --color=auto'
 alias lls='ls -lah --color=auto'
 alias du='du -h'
 alias df='df -h'
+alias kronos='kronos -u rjbits -tw -td'
 
 alias cpg="rsync --partial --progress --append --rsh=ssh -r -h "
 alias mvg="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
@@ -11,10 +12,6 @@ alias mvg="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-fil
 
 # Use neovim instead of vim
 alias vim='nvim'
-
-# One letter command for a simple to-do list from Steve Losh (makes lots of cool things)
-# See: https://github.com/sjl/t
-alias t='python ~/bin/t --task-dir ~/.tasks --list tasks'
 
 # Git wrapper from the github team that adds some nice features
 # See: https://github.com/github/hub
