@@ -1,4 +1,6 @@
 # vim: ft=cfg
+# Depends on patched version of dunst for round corners
+# AUR:  dunst-round-corners-git
 [global]
 
     corner_radius = 4

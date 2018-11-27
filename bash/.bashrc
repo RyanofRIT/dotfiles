@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# vi mode over emacs mode
+set -o vi
+bind '"jk":vi-movement-mode'
+
 # Set the prompt.
 export PS1="[\A] \w >\[$(tput sgr0)\] "
 
