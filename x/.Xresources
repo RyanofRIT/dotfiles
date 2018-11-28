@@ -1,3 +1,11 @@
+#ifndef INTERNAL_BORDER
+    #ifdef SRVR_archy
+        #define INTERNAL_BORDER 0
+    #else
+        #define INTERNAL_BORDER 15
+    #endif
+#endif
+
 Xft.dpi: 96
 Xft.autohint: 0
 Xft.antialias: true
@@ -63,7 +71,7 @@ URxvt.letterSpace: -1
 URxvt.scrollBar: false
 
 ! Set terminal padding
-URxvt.internalBorder: 15
+URxvt.internalBorder: INTERNAL_BORDER
 
 ! Extensions
 URxvt.perl-ext-common: default,clipboard,matcher
