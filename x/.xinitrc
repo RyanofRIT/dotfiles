@@ -3,7 +3,8 @@
 # xinitrc
 
 if [ "$HOSTNAME" = archy ]; then
-	xrandr --output "$MONITOR1" --primary --mode 1920x1080 --output "$MONITOR2" --mode 1920x1080
+	xrandr --output "$MONITOR1" --primary --mode 1920x1080
+	feh --bg-fill Pictures/Wallpapers/DaftPunk1.jpg
 
 else
 	xrandr --output "$MONITOR1" --primary --mode 3840x2160 --output "$MONITOR2" --mode 3840x2160
@@ -18,7 +19,8 @@ else
 		xwinwrap -g 1920x1080+7680+0 -ov -ni -- mpv -wid WID --loop ~/Pictures/Wallpapers/daft_punk_animated_2.mp4 &
 	fi
 fi
-
+# set npm install location
+export npm_config_prefix=~/.node_modules
 
 # xset is a user preference utility for x. m sets mouse acceleration and threshold
 xset m 1/1

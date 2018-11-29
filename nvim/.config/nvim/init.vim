@@ -8,7 +8,7 @@ set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim/
 if dein#load_state("~/.config/nvim/dein/")
 	call dein#begin("~/.config/nvim/dein/")
 
-	call dein#add("~/.config/nvim/dein/repos/github.com/Shougo/dein.vim/")
+	call dein#add("~/.config/nvim/dein/repos/github.com/Shougo/dein.vim")
 
 	" Autocompletion
 	call dein#add('Shougo/deoplete.nvim')
@@ -32,7 +32,7 @@ if dein#load_state("~/.config/nvim/dein/")
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('vim-airline/vim-airline')
 	call dein#add('vim-airline/vim-airline-themes')
-	call dein#add('rstacruz/sparkup.git')
+	call dein#add('rstacruz/sparkup')
 
 	" Supposedly matches if with endif etc based on language
 	call dein#add('tpope/vim-endwise')
@@ -242,6 +242,8 @@ nnoremap <leader>p :cprevious<CR>
 " Indented enter (mostly for html editting)
 inoremap <leader>l <CR><CR><esc>ki<Tab><Tab>
 
+tnoremap <Esc> <C-\><C-n>
+
 augroup filetypes
 	autocmd!
 	autocmd FileType python set expandtab softtabstop=4 shiftwidth=4 list
@@ -269,7 +271,6 @@ fun! TrimWhiteSpace()
 	call winrestview(l:save)
 endfun
 
-"TODO make it take the width as param?
 fun! TSV()
 	setlocal nowrap
 	setlocal noexpandtab
