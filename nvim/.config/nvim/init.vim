@@ -1,5 +1,6 @@
 " Dein Setup {{{
-" TODO set makeprg=shellcheck\ -f\ gcc\ %
+
+" Disable compatibility for dein
 if &compatible
 	set nocompatible
 endif
@@ -15,6 +16,7 @@ if dein#load_state("~/.config/nvim/dein/")
 
 	" Typescript syntax
 	call dein#add('HerringtonDarkholme/yats.vim')
+
 	" Typescript specific autocompletion on top of deoplete
 	" (after npm install neovim/typescript)
 	"call dein#add('mhartington/nvim-typescript', {'build':'./install.sh'})
@@ -55,23 +57,26 @@ if dein#load_state("~/.config/nvim/dein/")
 
 	"call dein#add('junegunn/limelight.vim')
 	"call dein#add('junegunn/goyo.vim')
-
 	"call dein#add('AndrewRadev/splitjoin.vim')
 	"call dein#add('raimondi/delimitmate')
 	"call dein#add('vim-syntastic/syntastic')
-	"tpope/vim-eunuch
+	"call dein#add('tpope/vim-eunuch')
 
 	call dein#end()
 	call dein#save_state()
 endif
 
+" }}}
+" Plugin configs {{{
 " gitgutter config
 let g:gitgutter_realtime = 1 "update when done typing
 set updatetime=250 "instead of 4 second default
 
+" changing displayed buffer
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
 
+" sparkup config
 let g:sparkupExecuteMapping = 'kk'
 
 " Required for dein
@@ -80,6 +85,37 @@ syntax enable
 
 " Set autocomplete to be on by default
 let g:deoplete#enable_at_startup = 1
+
+" airline config
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+if !exists('g:airline_symbols')
+		let g:airline_symbols = {}
+endif
+
+" unicode symbols
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 " }}}
 " Colors {{{
@@ -107,59 +143,31 @@ set hid
 set splitbelow
 set splitright
 
-" air-line
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+" relative line numbering
+"set relativenumber
 
-if !exists('g:airline_symbols')
-		let g:airline_symbols = {}
-endif
-
-" unicode symbols
-"let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
-"let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-" }}}
-" Spaces and tabs {{{
-
-" number of visual spaces per tab
-set tabstop=2
-
-" number of spaces per tab when editing
-set softtabstop=2
-
-" how much vim shift text
-set shiftwidth=2
-" }}}
-" UI Layout {{{
-
-" show line numbers
-"set number
+" line numbering
+set number
 
 " show last command in the bottom bar
 set showcmd
 
 " highlight matching {[()]}
 set showmatch
+" }}}
+" Spaces and tabs {{{
+
+" width of a \t
+set tabstop=2
+
+" sets the number of columns for a tab
+set softtabstop=2
+
+" sets indentation size
+set shiftwidth=2
+
+" expand tabs to spaces
+set expandtab
 
 " }}}
 " Searching {{{
@@ -170,8 +178,8 @@ set incsearch
 " highlight matches
 set hlsearch
 
-"map clearing the search to ,<space>
-nnoremap <leader><space> :nohlsearch<CR>
+" map clearing the search to ,<space>
+nmap <leader><space> :nohlsearch<CR>
 
 " Try to be smart about the case when searching
 set ignorecase
@@ -188,7 +196,7 @@ set mat=2
 
 set foldenable
 set foldlevelstart=60 " depth at which to start folding
-set foldnestmax=10 " don't allow to0 many folds
+set foldnestmax=10 " don't allow too many folds
 set foldmethod=syntax " vs marker, manual, expr, syntax, or diff
 nnoremap <space> za
 
@@ -206,9 +214,6 @@ nnoremap E $
 " leader is set to comma
 let mapleader=","
 let maplocalleader="\\"
-
-" clear search highlighting
-nnoremap <leader><space> :nohlsearch<CR>
 
 " map and source vimrc
 nnoremap <leader>ev :vsp ~/.config/nvim/init.vim<CR>
@@ -236,12 +241,14 @@ nnoremap <c-k> ddkP
 nnoremap <leader>j :lnext<CR>
 nnoremap <leader>k :lprevious<CR>
 
+" Move through the quickfix list
 nnoremap <leader>n :cnext<CR>
 nnoremap <leader>p :cprevious<CR>
 
 " Indented enter (mostly for html editting)
 inoremap <leader>l <CR><CR><esc>ki<Tab><Tab>
 
+" Escape terminal mode with esc
 tnoremap <Esc> <C-\><C-n>
 
 augroup filetypes
@@ -251,11 +258,11 @@ augroup filetypes
 	autocmd FileType markdown inoremap <buffer> <CR> <SPACE><SPACE><CR>
 	autocmd FileType markdown set expandtab softtabstop=2 shiftwidth=2 list
 	autocmd FileType text set textwidth=80
-	autocmd FileType text colorscheme molokai
 	autocmd FileType text Limelight
 augroup END
 
 " Tab autocomplete
+" TODO(ryan) fix issue where no completions throw error
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" :
 	\ <SID>check_back_space() ? "\<TAB>" :
 	\ newcomplete#start_manual_complete()
@@ -271,6 +278,7 @@ fun! TrimWhiteSpace()
 	call winrestview(l:save)
 endfun
 
+" Make tsv files more readable
 fun! TSV()
 	setlocal nowrap
 	setlocal noexpandtab
