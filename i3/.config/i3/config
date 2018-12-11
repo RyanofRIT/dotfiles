@@ -85,7 +85,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m '' -b '>x.x<' 'i3-msg exit'"
+bindsym $mod+Shift+e exec ~/bin/menu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -136,9 +136,6 @@ bindsym Print exec --no-startup-id scr
 
 # Change audio output
 bindsym $mod+s exec ~/bin/audio_switch
-
 bindsym $mod+z exec ~/bin/lock
-bindsym $mod+u exec ~/bin/focus_pid
 bindsym $mod+t exec ~/bin/time
 bindsym $mod+b exec ~/bin/bat
-

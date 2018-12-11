@@ -18,7 +18,7 @@ alias vim='nvim'
 alias git='hub'
 
 # Kill all orphaned packages
-alias anakin="sudo pacman -Rns \$(pacman -Qtdq)"
+alias anakin="pacaur -Rns \$(pacaur -Qtdq)"
 
 # Quick movement
 alias ~='cd ~'
@@ -39,6 +39,7 @@ alias opendocker='docker build -t vpn ~/Documents/dockerfiles/openvpn/; sudo doc
 alias transmission_sonarr='docker run -it -m 4G --net container:vpn --name transmission_sonarr -e PUID=1000 -e PGID=1000 -v /media/raid/transmission_sonarr/:/var/lib/transmission-daemon -d dperson/transmission'
 alias transmission_radarr='docker run -it -m 4G --net container:vpn --name transmission_radarr -e PUID=1000 -e PGID=1000 -v /media/raid/transmission_radarr/:/var/lib/transmission-daemon -d dperson/transmission'
 alias transmission_blutop='docker run -it -m 4G -p 9091:9091 --name transmission_blutop -e PUID=1000 -e PGID=1000 -v /media/raid/transmission_blutop/:/var/lib/transmission-daemon -d dperson/transmission'
+alias transmission_blutop2='docker run -it -m 4G -p 9092:9091 --name transmission_blutop2 -e PUID=1000 -e PGID=1000 -v /media/junk/transmission_blutop/:/var/lib/transmission-daemon -d dperson/transmission'
 
 # Create directory paths and cd into them in one command
 chdir(){
