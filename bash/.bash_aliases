@@ -40,6 +40,7 @@ alias transmission_sonarr='docker run -it -m 4G --net container:vpn --name trans
 alias transmission_radarr='docker run -it -m 4G --net container:vpn --name transmission_radarr -e PUID=1000 -e PGID=1000 -v /media/raid/transmission_radarr/:/var/lib/transmission-daemon -d dperson/transmission'
 alias transmission_blutop='docker run -it -m 4G -p 9091:9091 --name transmission_blutop -e PUID=1000 -e PGID=1000 -v /media/raid/transmission_blutop/:/var/lib/transmission-daemon -d dperson/transmission'
 alias transmission_blutop2='docker run -it -m 4G -p 9092:9091 --name transmission_blutop2 -e PUID=1000 -e PGID=1000 -v /media/junk/transmission_blutop/:/var/lib/transmission-daemon -d dperson/transmission'
+alias transmission_redtop='docker run -it -m 4G -p 9093:9091 --name transmission_redtop -e PUID=1000 -e PGID=1000 -v /media/expand/transmission_redtop/:/var/lib/transmission-daemon -d dperson/transmission'
 
 # Create directory paths and cd into them in one command
 chdir(){
