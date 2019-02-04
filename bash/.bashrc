@@ -35,6 +35,7 @@ shopt -s checkwinsize
 # Enable extended globbing allowing composite patterns
 shopt -s extglob
 
+# cd only autocompletes directories
 complete -d cd
 
 # ALIASES
@@ -45,14 +46,6 @@ fi
 # git hub autocompletions
 if [ -f ~/dotfiles/git/.hub.bash_completion ]; then
   source ~/dotfiles/git/.hub.bash_completion
-fi
-
-if [ "$HOSTNAME" = archy ]; then
-	export MONITOR1="DVI-I-1"
-	export MONITOR2="DVI-D-0"
-else
-	export MONITOR1="DP-2"
-	export MONITOR2="DP-4"
 fi
 
 # Source git autocompletions
