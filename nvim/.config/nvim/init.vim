@@ -179,7 +179,7 @@ set incsearch
 set hlsearch
 
 " map clearing the search to ,<space>
-nmap <leader><space> :nohlsearch<CR>
+nnoremap <leader><space> :nohlsearch<CR>
 
 " Try to be smart about the case when searching
 set ignorecase
@@ -257,8 +257,8 @@ augroup filetypes
 	autocmd FileType sh set makeprg=shellcheck\ -f\ gcc\ %
 	autocmd FileType markdown inoremap <buffer> <CR> <SPACE><SPACE><CR>
 	autocmd FileType markdown set expandtab softtabstop=2 shiftwidth=2 list
-	autocmd FileType text set textwidth=80
-	autocmd FileType text Limelight
+	"autocmd FileType text set textwidth=80
+	"autocmd FileType text Limelight
 augroup END
 
 " Tab autocomplete
