@@ -3,17 +3,23 @@
 # xinitrc
 
 if [ "$HOSTNAME" = archy ]; then
-	xrandr --output "$MONITOR1" --primary --mode 1920x1080
-	feh --bg-fill Pictures/Wallpapers/DaftPunk1.jpg
-
+	export MONITOR1="DVI-I-1"
 else
-	xrandr --output "$MONITOR1" --primary --mode 3840x2160 --output "$MONITOR2" --mode 3840x2160
-	xrandr --output "$MONITOR1" --left-of "$MONITOR2"
+	export MONITOR1="DP-2"
+	export MONITOR2="DP-4"
+	export MONITOR3="HDMI-0"
+fi
+
+if [ "$HOSTNAME" = archy ]; then
+	xrandr --output "$MONITOR1" --primary --mode 1920x1080
+	feh --bg-fill ~/Pictures/Wallpapers/DaftPunk1.jpg
+else
+	xrandr --output "$MONITOR1" --primary --mode 3840x2160 --left-of --output "$MONITOR2" --mode 3840x2160
 
 	feh --randomize --bg-fill ~/Pictures/Wallpapers/*
 
 	if [ $(xrandr | grep "\ connected" | wc -l) = 3 ]; then
-		xrandr --output "HDMI-0" --right-of "$MONITOR2"
+		xrandr --output "$MONITOR3" --right-of "$MONITOR2"
 	fi
 fi
 
@@ -30,10 +36,11 @@ xhost +
 
 xrdb -merge "$HOME/.Xresources"
 
-foreground="#d9d9d9"
-color4="#9d65ff"
+# dunst doesn't read xresources so pull it directly from the config file
+foreground=`xrdb -q | grep foreground | sed 's/.\+#/#/'`
+color4=`xrdb -q | grep color4 | sed 's/.\+#/#/'`
 
-start_dunst() {
+main() {
 	dunst \
 		-lb "$color4" \
 		-nb "$color4" \
@@ -45,11 +52,7 @@ start_dunst() {
 		-geometry "${DUNST_SIZE:-300x30-40+40}" &
 }
 
-main() {
-	start_dunst &
-}
-
-main >/dev/null 2>&1
+main
 
 # compton config at ~.compton.conf fixes some bugs with x and i3
 compton &

@@ -1,0 +1,4 @@
+# After first running
+# git config diff.nodiff.command /bin/true
+htop/ diff=nodiff
+x/.Xmodmap diff=nodiff
