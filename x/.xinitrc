@@ -10,15 +10,13 @@ else
 	xrandr --output "$MONITOR1" --primary --mode 3840x2160 --output "$MONITOR2" --mode 3840x2160
 	xrandr --output "$MONITOR1" --left-of "$MONITOR2"
 
-	xwinwrap -g 3840x2160+0+0 -ov -ni -- mpv -wid WID --loop --autofit-smaller=3840x2160 ~/Pictures/Wallpapers/daft_punk_animated_2.mp4 &
-
-	xwinwrap -g 3840x2160+3840+0 -ov -ni -- mpv -wid WID --loop --autofit-smaller=3840x2160 ~/Pictures/Wallpapers/daft_punk_pixelated.gif &
+	feh --randomize --bg-fill ~/Pictures/Wallpapers/*
 
 	if [ $(xrandr | grep "\ connected" | wc -l) = 3 ]; then
 		xrandr --output "HDMI-0" --right-of "$MONITOR2"
-		xwinwrap -g 1920x1080+7680+0 -ov -ni -- mpv -wid WID --loop ~/Pictures/Wallpapers/daft_punk_animated_2.mp4 &
 	fi
 fi
+
 # set npm install location
 export npm_config_prefix=~/.node_modules
 
@@ -40,15 +38,15 @@ start_dunst() {
 		-lb "$color4" \
 		-nb "$color4" \
 		-cb "$color4" \
-		-lf "$foreground"  \
-		-bf "$foreground"  \
-		-cf "$foreground"  \
+		-lf "$foreground" \
+		-bf "$foreground" \
+		-cf "$foreground" \
 		-fn "${DUNST_FONT:-DroidSansMono 10}" \
 		-geometry "${DUNST_SIZE:-300x30-40+40}" &
 }
 
 main() {
-    start_dunst &
+	start_dunst &
 }
 
 main >/dev/null 2>&1
