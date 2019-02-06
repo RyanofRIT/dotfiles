@@ -31,7 +31,7 @@ keycode  32 = o O XF86Eject XF86Eject
 keycode  33 = p P Pause Break
 keycode  34 = bracketleft braceleft
 keycode  35 = bracketright braceright bracketright braceright
-keycode  22 = BackSpace Delete BackSpace Delete
+keycode  22 = BackSpace BackSpace Delete Delete
 
 !!!! Line 3
 
@@ -64,32 +64,19 @@ keycode  60 = period greater
 keycode  61 = slash question
 !keycode  62 = Shift_R Shift_R Shift_R Shift_R
 
-!!!!! Line 5
-
-!TODO this seems to need to be manually set for some reason
 keycode 37 = Mode_switch
 keycode 105 = Super_R Meta_R
 keycode 64 = Alt_L
 keycode 108 = Alt_R
-keycode 133 = Control_L
-keycode 134 = Control_R
+keycode 102 = Control_L
+keycode 100 = Control_R
 
 !!!!! Modifiers
 
-!clear shift
-!clear lock
-clear Control
-clear Mod1
-!clear mod2
-!clear mod3
-clear Mod4
-!clear mod5
+clear shift
+clear lock
+clear mod1
 
-!add shift = Shift_L Shift_R
-!add lock = Caps_Lock
 add control = Control_L Control_R
 add mod1 = Alt_L Alt_R Meta_L Meta_R
-!add mod2 = Num_Lock
-!!add mod3 = ???
-add mod4 = Super_L Super_R
-!!add mod5 = Mode_switch
+add shift = Shift_L Shift_R
