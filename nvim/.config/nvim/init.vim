@@ -278,6 +278,26 @@ fun! TrimWhiteSpace()
 	call winrestview(l:save)
 endfun
 
+fun! CSV()
+  execute "%s/,/\t/g"
+	setlocal nowrap
+	setlocal noexpandtab
+	setlocal shiftwidth=20
+	setlocal softtabstop=20
+	setlocal tabstop=20
+	" always visible header
+	execute "sp"
+	execute "0"
+	wincmd K
+	1wincmd _
+	wincmd j
+	" bind horizontal scrolling
+	set scrollopt=hor
+	set scrollbind
+	wincmd k
+	set scrollbind
+	wincmd j
+endfun
 " Make tsv files more readable
 fun! TSV()
 	setlocal nowrap
