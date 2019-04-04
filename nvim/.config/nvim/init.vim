@@ -4,15 +4,15 @@
 if &compatible
 	set nocompatible
 endif
-set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim/
+set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
 
-if dein#load_state("~/.config/nvim/dein/")
-	call dein#begin("~/.config/nvim/dein/")
+if dein#load_state("~/.local/share/dein")
+	call dein#begin("~/.local/share/dein")
 
-	call dein#add("~/.config/nvim/dein/repos/github.com/Shougo/dein.vim")
+	call dein#add("~/.local/share/dein/repos/github.com/Shougo/dein.vim")
 
 	" Autocompletion
-	call dein#add('Shougo/deoplete.nvim')
+	"call dein#add('Shougo/deoplete.nvim')
 
 	" Typescript syntax
 	call dein#add('HerringtonDarkholme/yats.vim')
@@ -34,7 +34,7 @@ if dein#load_state("~/.config/nvim/dein/")
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('vim-airline/vim-airline')
 	call dein#add('vim-airline/vim-airline-themes')
-	call dein#add('rstacruz/sparkup')
+	call dein#add('rstacruz/sparkup', {'rtp': 'vim'})
 
 	" Supposedly matches if with endif etc based on language
 	call dein#add('tpope/vim-endwise')
@@ -197,7 +197,7 @@ set mat=2
 set foldenable
 set foldlevelstart=60 " depth at which to start folding
 set foldnestmax=10 " don't allow too many folds
-set foldmethod=syntax " vs marker, manual, expr, syntax, or diff
+set foldmethod=indent " vs marker, manual, expr, syntax, or diff
 nnoremap <space> za
 
 " }}}
@@ -279,7 +279,7 @@ fun! TrimWhiteSpace()
 endfun
 
 fun! CSV()
-  execute "%s/,/\t/g"
+	execute "%s/,/\t/g"
 	setlocal nowrap
 	setlocal noexpandtab
 	setlocal shiftwidth=20
