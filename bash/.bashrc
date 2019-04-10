@@ -40,7 +40,7 @@ complete -d cd
 
 # ALIASES
 if [ -f ~/.bash_aliases ]; then
-	source ~/.bash_aliases
+  source ~/.bash_aliases
 fi
 
 # git hub autocompletions

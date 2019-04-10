@@ -77,6 +77,6 @@ clear shift
 clear lock
 clear mod1
 
-add control = Control_L Control_R
+add control = Control_L
 add mod1 = Alt_L Alt_R Meta_L Meta_R
 add shift = Shift_L Shift_R

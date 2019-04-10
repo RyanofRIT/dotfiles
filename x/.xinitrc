@@ -14,9 +14,9 @@ if [ "$HOSTNAME" = archy ]; then
 	xrandr --output "$MONITOR1" --primary --mode 1920x1080
 	feh --bg-fill ~/Pictures/Wallpapers/DaftPunk1.jpg
 else
-	xrandr --output "$MONITOR1" --primary --mode 3840x2160 --left-of --output "$MONITOR2" --mode 3840x2160
+	xrandr --output "$MONITOR1" --primary --mode 3840x2160 --left-of "$MONITOR2"
 
-	feh --randomize --bg-fill ~/Pictures/Wallpapers/*
+	feh --randomize --bg-fill ~/Pictures/Wallpapers/city.jpg
 
 	if [ $(xrandr | grep "\ connected" | wc -l) = 3 ]; then
 		xrandr --output "$MONITOR3" --right-of "$MONITOR2"
