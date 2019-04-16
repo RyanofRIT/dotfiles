@@ -118,18 +118,15 @@ client.placeholder      $bg				$bg				$fg		$bg					$bg
 for_window [class="^.*"] border pixel 4
 
 # Spotify shenanigans
-for_window [class="Spotify"] move to workspace spotify
-for_window [class="Spotify"] floating enable
-floating_minimum_size 1920 X 1080
-floating_maximum_size 1920 X 1080
+#for_window [class="Spotify"] move to workspace spotify
 
 smart_borders on
 smart_gaps on
 gaps inner 10
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id vol up
-bindsym XF86AudioLowerVolume exec --no-startup-id vol down
+#bindsym XF86AudioRaiseVolume exec --no-startup-id vol up
+#bindsym XF86AudioLowerVolume exec --no-startup-id vol down
 
 # Print screen
 bindsym Print exec --no-startup-id scr

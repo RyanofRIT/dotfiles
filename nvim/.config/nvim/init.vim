@@ -61,6 +61,8 @@ if dein#load_state("~/.local/share/dein")
 	"call dein#add('raimondi/delimitmate')
 	"call dein#add('vim-syntastic/syntastic')
 	"call dein#add('tpope/vim-eunuch')
+  "
+  call dein#add('mustache/vim-mustache-handlebars')
 
 	call dein#end()
 	call dein#save_state()
@@ -116,6 +118,8 @@ let g:airline_right_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+let g:mustache_abbreviations = 1
 
 " }}}
 " Colors {{{
