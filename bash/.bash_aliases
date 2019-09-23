@@ -1,11 +1,17 @@
 #!/bin/bash
-alias grep='grep --color=auto'
+alias grep='grep --color=auto --exclude-dir=node_modules --exclude-dir=.git'
 alias ls='ls --color=auto'
 alias lls='ls -lah --color=auto'
 alias du='du -h'
 alias df='df -h'
+alias exi='exit'
 alias weather='~/bin/weather'
 alias tree='tree -I "node_modules"'
+
+dkps() { docker ps --format "table {{.Names}}\t{{.Ports}}" "$@"; }
+dkst() { docker stats; }
+dkup() { docker-compose up -d "$@"; }
+dkdown() { docker-compose down "$@"; }
 
 alias cpg="rsync --partial --progress --append --rsh=ssh -r -h "
 alias mvg="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
@@ -26,9 +32,6 @@ alias anakin="pikaur -Rns \$(pikaur -Qtdq)"
 alias ..='cd ..'
 alias sl='ls'
 
-# Openvpn docker to run other containers through
-alias opendocker='docker build -t vpn ~/Documents/dockerfiles/openvpn/; sudo docker run --rm -it -m 4G --cap-add=NET_ADMIN --device /dev/net/tun --name vpn -v /home/mainuser/Documents/dockerfiles/openvpn-configs/ovpn_tcp:/vpn vpn'
-
 # Create directory paths and cd into them in one command
 chdir(){
 	# -- following will not get parsed as options
@@ -48,4 +51,9 @@ gi() {
 	else
 		echo "what man?"
 	fi
+}
+
+f() {
+	fff "$@"
+	cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
 }
