@@ -1,3 +1,4 @@
+" TODO look into omnifunc
 " Dein Setup {{{
 
 " Disable compatibility for dein
@@ -12,14 +13,7 @@ if dein#load_state("~/.local/share/dein")
 	call dein#add("~/.local/share/dein/repos/github.com/Shougo/dein.vim")
 
 	" Autocompletion
-	"call dein#add('Shougo/deoplete.nvim')
-
-	" Typescript syntax
-	call dein#add('HerringtonDarkholme/yats.vim')
-
-	" Typescript specific autocompletion on top of deoplete
-	" (after npm install neovim/typescript)
-	"call dein#add('mhartington/nvim-typescript', {'build':'./install.sh'})
+	call dein#add('Shougo/deoplete.nvim')
 
 	" Surrounding commands
 	" cs12 - change surr
@@ -111,9 +105,9 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
-let g:airline_left_sep = ''
+"let g:airline_left_sep = ''
 "let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
+"let g:airline_right_sep = ''
 "let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
@@ -266,14 +260,7 @@ augroup filetypes
 augroup END
 
 " Tab autocomplete
-" TODO(ryan) fix issue where no completions throw error
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ newcomplete#start_manual_complete()
-function! s:check_back_space() "{{{
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1] =~ '\s'
-endfunction"}}}
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<tab>"
 
 " Trim whitespace
 fun! TrimWhiteSpace()
