@@ -1,27 +1,25 @@
 #!/usr/bin/env bash
 #
 # xinitrc
+case "$HOSTNAME" in
+  redar)
+    export MONITOR1="DP-2"
+    export MONITOR2="DP-4"
+    export MONITOR3="HDMI-0"
+    xrandr --output "$MONITOR1" --primary --mode 3840x2160 --left-of "$MONITOR2"
 
-if [ "$HOSTNAME" = archy ]; then
-	export MONITOR1="DVI-I-1"
-else
-	export MONITOR1="DP-2"
-	export MONITOR2="DP-4"
-	export MONITOR3="HDMI-0"
-fi
+    # position my TV if it's connected
+    if [ $(xrandr | grep -c "\ connected") = 3 ]; then
+      xrandr --output "$MONITOR3" --right-of "$MONITOR2"
+    fi
+    ;;
+  *)
+    setscreen 1920 1080
+    ;;
+esac
 
-if [ "$HOSTNAME" = archy ]; then
-	xrandr --output "$MONITOR1" --primary --mode 1920x1080
-	feh --bg-fill ~/Pictures/Wallpapers/DaftPunk1.jpg
-else
-	xrandr --output "$MONITOR1" --primary --mode 3840x2160 --left-of "$MONITOR2"
-
-	feh --randomize --bg-fill ~/Pictures/Wallpapers/city.jpg
-
-	if [ $(xrandr | grep "\ connected" | wc -l) = 3 ]; then
-		xrandr --output "$MONITOR3" --right-of "$MONITOR2"
-	fi
-fi
+# --no-fehbg prevents a .fehbg executable from being created in home dir
+feh --no-fehbg --bg-fill ~/Pictures/Wallpapers/plant_background.jpg
 
 # set npm install location
 export npm_config_prefix=~/.node_modules
@@ -37,19 +35,19 @@ xhost +
 xrdb -merge "$HOME/.Xresources"
 
 # dunst doesn't read xresources so pull it directly from the config file
-foreground=`xrdb -q | grep foreground | sed 's/.\+#/#/'`
-color4=`xrdb -q | grep color4 | sed 's/.\+#/#/'`
+foreground=$(xrdb -q | grep foreground | sed 's/.\+#/#/')
+color4=$(xrdb -q | grep color4 | sed 's/.\+#/#/')
 
 main() {
-	dunst \
-		-lb "$color4" \
-		-nb "$color4" \
-		-cb "$color4" \
-		-lf "$foreground" \
-		-bf "$foreground" \
-		-cf "$foreground" \
-		-fn "${DUNST_FONT:-DroidSansMono 10}" \
-		-geometry "${DUNST_SIZE:-300x30-40+40}" &
+  dunst \
+    -lb "$color4" \
+    -nb "$color4" \
+    -cb "$color4" \
+    -lf "$foreground" \
+    -bf "$foreground" \
+    -cf "$foreground" \
+    -fn "${DUNST_FONT:-DroidSansMono 10}" \
+    -geometry "${DUNST_SIZE:-300x30-40+40}" &
 }
 
 main
@@ -58,4 +56,4 @@ main
 compton &
 urxvtd --quiet --opendisplay --fork &
 nohup ~/bin/python_pipe.py &
-exec i3
+exec i3 > ~/.i3.log 2>&1
