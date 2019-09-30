@@ -3,63 +3,60 @@
 
 " Disable compatibility for dein
 if &compatible
-	set nocompatible
+  set nocompatible
 endif
+
 set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state("~/.local/share/dein")
-	call dein#begin("~/.local/share/dein")
+  call dein#begin("~/.local/share/dein")
 
-	call dein#add("~/.local/share/dein/repos/github.com/Shougo/dein.vim")
+  call dein#add("~/.local/share/dein/repos/github.com/Shougo/dein.vim")
 
-	" Autocompletion
-	call dein#add('Shougo/deoplete.nvim')
+  " Autocompletion
+  call dein#add('Shougo/deoplete.nvim')
 
-	" Surrounding commands
-	" cs12 - change surr
-	" cst2 - change surr to
-	" ysiw1 -you surr inner word
-	" ds1	- delete surr
-	call dein#add('tpope/vim-surround.git')
+  " Surrounding commands
+  " cs12  - change surr
+  " cst2  - change surr to
+  " ysiw1 - you surr inner word
+  " ds1    - delete surr
+  call dein#add('tpope/vim-surround.git')
 
-	" Commenting with <leader>
-	" cc, cn (nesting), c<space> (toggle), cy (cc but yank), c$, cu (uncomments)
-	call dein#add('scrooloose/nerdcommenter')
-	call dein#add('airblade/vim-gitgutter')
-	call dein#add('vim-airline/vim-airline')
-	call dein#add('vim-airline/vim-airline-themes')
-	call dein#add('rstacruz/sparkup', {'rtp': 'vim'})
+  " Commenting with <leader>
+  " cc, cn (nesting), c<space> (toggle), cy (cc but yank), c$, cu (uncomments)
+  call dein#add('scrooloose/nerdcommenter')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
 
-	" Supposedly matches if with endif etc based on language
-	call dein#add('tpope/vim-endwise')
+  " Supposedly matches if with endif etc based on language
+  call dein#add('tpope/vim-endwise')
 
-	" <C-A> and <C-X> work on dates
-	call dein#add('tpope/vim-speeddating')
+  " <C-A> and <C-X> work on dates
+  call dein#add('tpope/vim-speeddating')
 
-	" abbr gen "Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or} {despe,sepa}rat{}
-	" :Subvert/facilit{y,ies}/building{,s}/g
-	" crs (coerce to snake_case). MixedCase (crm), camelCase (crc), snake_case
-	" (crs), UPPER_CASE (cru), dash-case (cr-), dot.case (cr.), space case
-	" (cr<space>), and Title Case (crt)
-	call dein#add('tpope/tpope-vim-abolish')
+  " abbr gen "Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or} {despe,sepa}rat{}
+  " :Subvert/facilit{y,ies}/building{,s}/g
+  " crs (coerce to snake_case). MixedCase (crm), camelCase (crc), snake_case
+  " (crs), UPPER_CASE (cru), dash-case (cr-), dot.case (cr.), space case
+  " (cr<space>), and Title Case (crt)
+  call dein#add('tpope/tpope-vim-abolish')
 
-	" . now repeats plugin mappings (may need to explicitly add support)
-	call dein#add('tpope/vim-repeat')
+  " . now repeats plugin mappings (may need to explicitly add support)
+  call dein#add('tpope/vim-repeat')
 
-	" :Tab /: to line things up on :
-	call dein#add('godlygeek/tabular')
+  " :Tab /: to line things up on :
+  call dein#add('godlygeek/tabular')
 
-	"call dein#add('junegunn/limelight.vim')
-	"call dein#add('junegunn/goyo.vim')
-	"call dein#add('AndrewRadev/splitjoin.vim')
-	"call dein#add('raimondi/delimitmate')
-	"call dein#add('vim-syntastic/syntastic')
-	"call dein#add('tpope/vim-eunuch')
+  "call dein#add('AndrewRadev/splitjoin.vim')
+  "call dein#add('raimondi/delimitmate')
+  "call dein#add('tpope/vim-eunuch')
   "
   call dein#add('mustache/vim-mustache-handlebars')
 
-	call dein#end()
-	call dein#save_state()
+  call dein#end()
+  call dein#save_state()
 endif
 
 " }}}
@@ -71,9 +68,6 @@ set updatetime=250 "instead of 4 second default
 " changing displayed buffer
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
-
-" sparkup config
-let g:sparkupExecuteMapping = 'kk'
 
 " Required for dein
 filetype plugin indent on
@@ -87,7 +81,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 if !exists('g:airline_symbols')
-		let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 
 " unicode symbols
@@ -140,9 +134,6 @@ set hid
 " Set Window split options
 set splitbelow
 set splitright
-
-" relative line numbering
-"set relativenumber
 
 " line numbering
 set number
@@ -250,13 +241,11 @@ inoremap <leader>l <CR><CR><esc>ki<Tab><Tab>
 tnoremap <Esc> <C-\><C-n>
 
 augroup filetypes
-	autocmd!
-	autocmd FileType python set expandtab softtabstop=4 shiftwidth=4 list
-	autocmd FileType sh set makeprg=shellcheck\ -f\ gcc\ %
-	autocmd FileType markdown inoremap <buffer> <CR> <SPACE><SPACE><CR>
-	autocmd FileType markdown set expandtab softtabstop=2 shiftwidth=2 list
-	"autocmd FileType text set textwidth=80
-	"autocmd FileType text Limelight
+  autocmd!
+  autocmd FileType python set expandtab softtabstop=4 shiftwidth=4 list
+  autocmd FileType sh set makeprg=shellcheck\ -f\ gcc\ %
+  autocmd FileType markdown inoremap <buffer> <CR> <SPACE><SPACE><CR>
+  autocmd FileType markdown set expandtab softtabstop=2 shiftwidth=2 list
 augroup END
 
 " Tab autocomplete
@@ -264,50 +253,50 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<tab>"
 
 " Trim whitespace
 fun! TrimWhiteSpace()
-	let l:save = winsaveview()
-	%s/\s\+$//e
-	call winrestview(l:save)
+  let l:save = winsaveview()
+  %s/\s\+$//e
+  call winrestview(l:save)
 endfun
 
 fun! CSV()
-	execute "%s/,/\t/g"
-	setlocal nowrap
-	setlocal noexpandtab
-	setlocal shiftwidth=20
-	setlocal softtabstop=20
-	setlocal tabstop=20
-	" always visible header
-	execute "sp"
-	execute "0"
-	wincmd K
-	1wincmd _
-	wincmd j
-	" bind horizontal scrolling
-	set scrollopt=hor
-	set scrollbind
-	wincmd k
-	set scrollbind
-	wincmd j
+  execute "%s/,/\t/g"
+  setlocal nowrap
+  setlocal noexpandtab
+  setlocal shiftwidth=20
+  setlocal softtabstop=20
+  setlocal tabstop=20
+  " always visible header
+  execute "sp"
+  execute "0"
+  wincmd K
+  1wincmd _
+  wincmd j
+  " bind horizontal scrolling
+  set scrollopt=hor
+  set scrollbind
+  wincmd k
+  set scrollbind
+  wincmd j
 endfun
 " Make tsv files more readable
 fun! TSV()
-	setlocal nowrap
-	setlocal noexpandtab
-	setlocal shiftwidth=20
-	setlocal softtabstop=20
-	setlocal tabstop=20
-	" always visible header
-	execute "sp"
-	execute "0"
-	wincmd K
-	1wincmd _
-	wincmd j
-	" bind horizontal scrolling
-	set scrollopt=hor
-	set scrollbind
-	wincmd k
-	set scrollbind
-	wincmd j
+  setlocal nowrap
+  setlocal noexpandtab
+  setlocal shiftwidth=20
+  setlocal softtabstop=20
+  setlocal tabstop=20
+  " always visible header
+  execute "sp"
+  execute "0"
+  wincmd K
+  1wincmd _
+  wincmd j
+  " bind horizontal scrolling
+  set scrollopt=hor
+  set scrollbind
+  wincmd k
+  set scrollbind
+  wincmd j
 endfun
 
 " }}}
