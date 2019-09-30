@@ -1,11 +1,11 @@
 # Add ~/bin to path
-PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/bin"
 
 # Add global node modules to path
-PATH="$PATH:$HOME/.local/share/.node_modules/bin"
+export PATH="$PATH:$HOME/.local/share/.node_modules/bin"
 
 # Some things like python --user install things here
-PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # specify where global npm packages are installed to
 export npm_config_prefix=~/.local/share/.node_modules
