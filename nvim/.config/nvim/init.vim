@@ -159,37 +159,6 @@ set shiftwidth=2
 set expandtab
 
 " }}}
-" Searching {{{
-
-" search as chars are entered
-set incsearch
-
-" highlight matches
-set hlsearch
-
-" map clearing the search to ,<space>
-nnoremap <leader><space> :nohlsearch<CR>
-
-" Try to be smart about the case when searching
-set ignorecase
-set smartcase
-
-" turn regular expressions on
-set magic
-
-" How many tenths of a second to blink when matching braces
-set mat=2
-
-" }}}
-" Folding {{{
-
-set foldenable
-set foldlevelstart=60 " depth at which to start folding
-set foldnestmax=10 " don't allow too many folds
-set foldmethod=indent " vs marker, manual, expr, syntax, or diff
-nnoremap <space> za
-
-" }}}
 " Line shortcuts {{{
 
 " move over wrapped lines as if they were separate
@@ -246,6 +215,7 @@ augroup filetypes
   autocmd FileType sh set makeprg=shellcheck\ -f\ gcc\ %
   autocmd FileType markdown inoremap <buffer> <CR> <SPACE><SPACE><CR>
   autocmd FileType markdown set expandtab softtabstop=2 shiftwidth=2 list
+  autocmd FileType dockerfile set tabstop=4 softtabstop=4 shiftwidth=4
 augroup END
 
 " Tab autocomplete
@@ -298,6 +268,37 @@ fun! TSV()
   set scrollbind
   wincmd j
 endfun
+
+" }}}
+" Searching {{{
+
+" search as chars are entered
+set incsearch
+
+" highlight matches
+set hlsearch
+
+" map clearing the search to ,<space>
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Try to be smart about the case when searching
+set ignorecase
+set smartcase
+
+" turn regular expressions on
+set magic
+
+" How many tenths of a second to blink when matching braces
+set mat=2
+
+" }}}
+" Folding {{{
+
+set foldenable
+set foldlevelstart=60 " depth at which to start folding
+set foldnestmax=10 " don't allow too many folds
+set foldmethod=indent " vs marker, manual, expr, syntax, or diff
+nnoremap <space> za
 
 " }}}
 " Backups {{{
