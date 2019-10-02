@@ -12,9 +12,14 @@ case "$HOSTNAME" in
     if [ $(xrandr | grep -c "\ connected") = 3 ]; then
       xrandr --output "$MONITOR3" --right-of "$MONITOR2"
     fi
+
+    # use keymap for linux host
+    xmodmap ~/.Xmodmap
     ;;
   *)
     setscreen 1920 1080
+    # use keymap built for working in a vm on an apple product
+    xmodmap ~/.Xmodmap.apple
     ;;
 esac
 
@@ -26,8 +31,6 @@ export npm_config_prefix=~/.node_modules
 
 # xset is a user preference utility for x. m sets mouse acceleration and threshold
 xset m 1/1
-
-xmodmap ~/.Xmodmap
 
 # disable access control so docker containers can attach to x11 server
 xhost +
