@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 #
 # xinitrc
+
+# TODO: Stow all dotfiles
+
 case "$HOSTNAME" in
   redar)
     export MONITOR1="DP-2"
@@ -17,7 +20,7 @@ case "$HOSTNAME" in
     xmodmap ~/.Xmodmap
     ;;
   *)
-    setscreen 1920 1080
+    setscreen 2560 1080
     # use keymap built for working in a vm on an apple product
     xmodmap ~/.Xmodmap.apple
     ;;

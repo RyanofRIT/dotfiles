@@ -1,6 +1,8 @@
 #ifndef INTERNAL_BORDER
     #ifdef SRVR_archy
         #define INTERNAL_BORDER 0
+    #elif SRVR_veccy
+        #define INTERNAL_BORDER 0
     #else
         #define INTERNAL_BORDER 15
     #endif
