@@ -1,4 +1,7 @@
+set_from_resource $inner_gaps i3wm.inner_gaps
+set_from_resource $border_pixel i3wm.border_pixel
 set $mod Mod1
+font pango:monospace 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -115,14 +118,14 @@ client.urgent           $bg				$bg				$fg		$bg					$bg
 client.placeholder      $bg				$bg				$fg		$bg					$bg
 
 # Add a 1px border to all windows
-for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel $border_pixel
 
 # Spotify shenanigans
 #for_window [class="Spotify"] move to workspace spotify
 
 smart_borders on
 smart_gaps on
-gaps inner 10
+gaps inner $inner_gaps
 
 # Audio controls
 #bindsym XF86AudioRaiseVolume exec --no-startup-id vol up

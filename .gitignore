@@ -5,3 +5,4 @@ nvim/.config/dein/state_nvim.vim
 *.log
 dein/
 rainbowstream/.rainbow_oauth
+nohup.out
