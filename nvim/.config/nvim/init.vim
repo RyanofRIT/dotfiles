@@ -66,6 +66,21 @@ if dein#load_state("~/.local/share/dein")
   call dein#save_state()
 endif
 
+let g:deoplete#enable_at_startup = 1
+
+" Required for dein
+filetype plugin indent on
+syntax enable
+
+" Move through autocomplete with tab
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" expand and jump through completion template
+imap <CR> <Plug>(neosnippet_expand_or_jump)
+smap <CR> <Plug>(neosnippet_expand_or_jump)
+xmap <CR> <Plug>(neosnippet_expand_target)
+
 " }}}
 " Colors {{{
 let g:vim_monokai_tasty_italic =1
@@ -108,6 +123,10 @@ au BufNewFile,BufRead,BufReadPost *.ts set syntax=typescript
 " }}}
 " Misc {{{
 
+" Changing displayed buffer
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprev<CR>
+
 " vim comments affect current file
 set modelines=1
 
@@ -116,6 +135,8 @@ set wildignore=*.o,*~,*.pyc
 
 " A buffer becomes hidden when it is abandoned
 set hid
+
+" Always show tabline
 set showtabline=2
 
 " Set Window split options
@@ -189,9 +210,6 @@ nnoremap <leader>k :lprevious<CR>
 " Move through the quickfix list
 nnoremap <leader>n :cnext<CR>
 nnoremap <leader>p :cprevious<CR>
-
-" Indented enter (mostly for html editting)
-inoremap <leader>l <CR><CR><esc>ki<Tab><Tab>
 
 " Escape terminal mode with esc
 tnoremap <Esc> <C-\><C-n>
