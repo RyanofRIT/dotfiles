@@ -7,6 +7,7 @@ alias df='df -h'
 alias exi='exit'
 alias weather='~/bin/weather'
 alias tree='tree -I "node_modules"'
+alias ssh='TERM=xterm ssh'
 
 dkps() { docker ps --format "table {{.Names}}\t{{.Ports}}" "$@"; }
 dkst() { docker stats; }

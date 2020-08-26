@@ -1,4 +1,3 @@
-" TODO look into omnifunc
 " Dein Setup {{{
 
 " Disable compatibility for dein
@@ -15,6 +14,9 @@ if dein#load_state("~/.local/share/dein")
 
   " Autocompletion
   call dein#add('Shougo/deoplete.nvim')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('taohexxx/lightline-buffer')
+  call dein#add('patstockwell/vim-monokai-tasty')
 
   " Surrounding commands
   " cs12  - change surr
@@ -26,9 +28,6 @@ if dein#load_state("~/.local/share/dein")
   " Commenting with <leader>
   " cc, cn (nesting), c<space> (toggle), cy (cc but yank), c$, cu (uncomments)
   call dein#add('scrooloose/nerdcommenter')
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
 
   " Supposedly matches if with endif etc based on language
   call dein#add('tpope/vim-endwise')
@@ -46,74 +45,76 @@ if dein#load_state("~/.local/share/dein")
   " . now repeats plugin mappings (may need to explicitly add support)
   call dein#add('tpope/vim-repeat')
 
-  " :Tab /: to line things up on :
-  call dein#add('godlygeek/tabular')
+  call dein#add('fatih/vim-go')
+
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
 
   "call dein#add('AndrewRadev/splitjoin.vim')
+  "call dein#add('tpope/vim-fugitive')
+  "call dein#add('ctrlpvim/ctrlp.vim')
+  "call dein#add('vim-airline/vim-airline')
+  "call dein#add('airblade/vim-gitgutter')
+  "call dein#add('vim-airline/vim-airline-themes')
+  " :Tab /: to line things up on :
+  "call dein#add('godlygeek/tabular')
   "call dein#add('raimondi/delimitmate')
   "call dein#add('tpope/vim-eunuch')
-  "
-  call dein#add('mustache/vim-mustache-handlebars')
-
+  "call dein#add('majutsushi/tagbar')
+  "call dein#add('mustache/vim-mustache-handlebars')
   call dein#end()
   call dein#save_state()
 endif
 
-" }}}
-" Plugin configs {{{
-" gitgutter config
-let g:gitgutter_realtime = 1 "update when done typing
-set updatetime=250 "instead of 4 second default
-
-" changing displayed buffer
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
+let g:deoplete#enable_at_startup = 1
 
 " Required for dein
 filetype plugin indent on
 syntax enable
 
-" Set autocomplete to be on by default
-let g:deoplete#enable_at_startup = 1
+" Move through autocomplete with tab
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-" airline config
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-"let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-let g:mustache_abbreviations = 1
+" expand and jump through completion template
+imap <CR> <Plug>(neosnippet_expand_or_jump)
+smap <CR> <Plug>(neosnippet_expand_or_jump)
+xmap <CR> <Plug>(neosnippet_expand_target)
 
 " }}}
 " Colors {{{
-let g:molokai_original = 1
-colorscheme molokai
-set background=dark
+let g:vim_monokai_tasty_italic =1
+colorscheme vim-monokai-tasty
+let g:lightline = {
+  \ 'colorscheme': 'monokai_tasty',
+  \ 'active': {
+  \    'right': [[ 'lineinfo' ], [ 'percent' ], [ 'filetype' ]]
+  \  },
+  \ 'tabline' : { 
+  \   'left': [[ 'bufferbefore', 'buffercurrent', 'bufferafter' ]],
+  \ },
+  \ 'component_expand': {
+  \   'buffercurrent': 'lightline#buffer#buffercurrent',
+  \   'bufferbefore': 'lightline#buffer#bufferbefore',
+  \   'bufferafter': 'lightline#buffer#bufferafter',
+  \ },
+  \ 'component_type': {
+  \   'buffercurrent': 'tabsel',
+  \   'bufferbefore': 'raw',
+  \   'bufferafter': 'raw',
+  \ },
+  \ 'component_function': {
+  \   'bufferinfo': 'lightline#buffer#bufferinfo',
+  \    'readonly' : 'LightlineReadonly',
+  \ },
+  \ 'component': {
+  \   'separator': '',
+  \ },
+  \ }
+
+function! LightlineReadonly()
+  return &readonly && &filetype !=# 'help' ? 'RO' : ''
+endfunction
 
 " set syntax highlighting for express templates to html
 au BufNewFile,BufRead,BufReadPost *.ejs set syntax=html
@@ -121,6 +122,10 @@ au BufNewFile,BufRead,BufReadPost *.ts set syntax=typescript
 
 " }}}
 " Misc {{{
+
+" Changing displayed buffer
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprev<CR>
 
 " vim comments affect current file
 set modelines=1
@@ -130,6 +135,9 @@ set wildignore=*.o,*~,*.pyc
 
 " A buffer becomes hidden when it is abandoned
 set hid
+
+" Always show tabline
+set showtabline=2
 
 " Set Window split options
 set splitbelow
@@ -174,7 +182,7 @@ let mapleader=","
 let maplocalleader="\\"
 
 " map and source vimrc
-nnoremap <leader>ev :vsp ~/.config/nvim/init.vim<CR>
+nnoremap <leader>ev :sp ~/.config/nvim/init.vim<CR>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
 
 " escape to normal mode with just jk
@@ -203,9 +211,6 @@ nnoremap <leader>k :lprevious<CR>
 nnoremap <leader>n :cnext<CR>
 nnoremap <leader>p :cprevious<CR>
 
-" Indented enter (mostly for html editting)
-inoremap <leader>l <CR><CR><esc>ki<Tab><Tab>
-
 " Escape terminal mode with esc
 tnoremap <Esc> <C-\><C-n>
 
@@ -216,6 +221,7 @@ augroup filetypes
   autocmd FileType markdown inoremap <buffer> <CR> <SPACE><SPACE><CR>
   autocmd FileType markdown set expandtab softtabstop=2 shiftwidth=2 list
   autocmd FileType dockerfile set tabstop=4 softtabstop=4 shiftwidth=4
+  autocmd FileType go set noexpandtab tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 " Tab autocomplete
