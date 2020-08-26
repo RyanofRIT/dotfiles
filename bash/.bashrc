@@ -4,6 +4,8 @@
 set -o vi
 bind '"jk":vi-movement-mode'
 
+export GOPATH="$HOME/go"
+
 # Set the prompt.
 export PS1="[\A] \w >\[$(tput sgr0)\] "
 

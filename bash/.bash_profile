@@ -7,6 +7,9 @@ export PATH="$PATH:$HOME/.local/share/.node_modules/bin"
 # Some things like python --user install things here
 export PATH="$PATH:$HOME/.local/bin"
 
+# Add golang bins to PATH
+export PATH="$PATH:$HOME/go/bin"
+
 # specify where global npm packages are installed to
 export npm_config_prefix=~/.local/share/.node_modules
 

@@ -1,13 +1,14 @@
 #!/bin/bash
+alias weather='~/bin/weather'
 alias grep='grep --color=auto --exclude-dir=node_modules --exclude-dir=.git'
 alias ls='ls --color=auto'
 alias lls='ls -lah --color=auto'
 alias du='du -h'
 alias df='df -h'
 alias exi='exit'
-alias weather='~/bin/weather'
-alias tree='tree -I "node_modules"'
+alias tree='tree -I "node_modules" -I "vendor"'
 alias ssh='TERM=xterm ssh'
+alias dk='docker-compose'
 
 dkps() { docker ps --format "table {{.Names}}\t{{.Ports}}" "$@"; }
 dkst() { docker stats; }
