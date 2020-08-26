@@ -58,8 +58,6 @@ main() {
 
 main
 
-# compton config at ~.compton.conf fixes some bugs with x and i3
-compton &
 urxvtd --quiet --opendisplay --fork &
 nohup ~/bin/python_pipe.py &
 exec i3 > ~/.i3.log 2>&1
