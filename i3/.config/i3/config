@@ -45,6 +45,9 @@ bindsym $mod+f fullscreen toggle
 # toggle tiling / floating
 bindsym $mod+p floating toggle
 
+# sticky floating toggle
+bindsym $mod+Shift+F floating enable, sticky enable, resize set 1080 px 666 px, move window to position 2756 px 1494 px
+
 # focus the parent container
 bindsym $mod+a focus parent
 
