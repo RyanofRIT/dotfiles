@@ -142,3 +142,5 @@ bindsym $mod+s exec ~/bin/audio_switch
 bindsym $mod+z exec ~/bin/lock
 bindsym $mod+t exec ~/bin/time
 bindsym $mod+b exec ~/bin/bat
+bindsym $mod+u exec ~/bin/vol up
+bindsym $mod+i exec ~/bin/vol down
