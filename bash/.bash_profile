@@ -4,6 +4,9 @@ export PATH="$PATH:$HOME/bin"
 # Add global node modules to path
 export PATH="$PATH:$HOME/.local/share/.node_modules/bin"
 
+# Changing Yarn's global install dir seems weird
+export PATH="$PATH:`yarn global bin`"
+
 # Some things like python --user install things here
 export PATH="$PATH:$HOME/.local/bin"
 
@@ -31,6 +34,8 @@ export PYTHONSTARTUP=~/bin/.pythonstartup
 # Ruby gems
 PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 export GEM_HOME=$HOME/.local/share/.gem
+
+export IPFS_PATH=/media/blaze/ipfs
 
 # Source bashrc on login
 [[ -f ~/.bashrc ]] && source ~/.bashrc
