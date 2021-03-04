@@ -6,10 +6,17 @@
 
 case "$HOSTNAME" in
   redar)
-    export MONITOR1="DP-2"
-    export MONITOR2="DP-4"
+    export MONITOR1="DP-4"
+    export MONITOR2="DP-2"
     export MONITOR3="HDMI-0"
-    xrandr --output "$MONITOR1" --primary --mode 3840x2160 --left-of "$MONITOR2"
+
+    if [ $(xrandr | grep -c "\ connected") = 1 ]; then
+      xrandr --output "$MONITOR1" --primary --mode 3840x2160
+    fi
+
+    if [ $(xrandr | grep -c "\ connected") = 2 ]; then
+      xrandr --output "$MONITOR1" --primary --mode 3840x2160 --right-of "$MONITOR2"
+    fi
 
     # position my TV if it's connected
     if [ $(xrandr | grep -c "\ connected") = 3 ]; then
@@ -35,6 +42,9 @@ export npm_config_prefix=~/.node_modules
 # xset is a user preference utility for x. m sets mouse acceleration and threshold
 xset m 1/1
 
+xset s off
+xset -dpms
+
 # disable access control so docker containers can attach to x11 server
 xhost +
 
@@ -45,6 +55,8 @@ foreground=$(xrdb -q | grep foreground | sed 's/.\+#/#/')
 color4=$(xrdb -q | grep color4 | sed 's/.\+#/#/')
 
 main() {
+  # TODO this warning is thrown when running bin/time from command line:
+  # TWARNING: No icon found in path: 'dialog-information'
   dunst \
     -lb "$color4" \
     -nb "$color4" \
@@ -61,3 +73,5 @@ main
 urxvtd --quiet --opendisplay --fork &
 nohup ~/bin/python_pipe.py &
 exec i3 > ~/.i3.log 2>&1
+sh xscreensaver -no-splash &
+sh redshift &

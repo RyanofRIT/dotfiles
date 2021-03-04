@@ -1,4 +1,12 @@
 !!!! Line 1
+clear shift
+clear lock
+clear control
+clear mod1
+clear mod2
+clear mod3
+clear mod4
+clear mod5
 
 keycode   9 = Escape Escape Escape Escape
 keycode  10 = 1 exclam F1 F1
@@ -74,10 +82,6 @@ keycode 108 = Alt_R
 keycode 100 = Control_R
 
 !!!!! Modifiers
-
-!clear shift
-!clear lock
-!clear mod1
 
 add control = Control_L
 add mod1 = Alt_L Alt_R
