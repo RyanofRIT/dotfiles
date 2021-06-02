@@ -1,32 +1,29 @@
-#ifndef INTERNAL_BORDER
-    #ifdef SRVR_archy
-        #define INTERNAL_BORDER 0
-    #elif SRVR_veccy
-        #define INTERNAL_BORDER 0
-    #else
-        #define INTERNAL_BORDER 15
-    #endif
-#endif
-
 ! set i3wm variables based on hostname
-#ifndef I3WM_WINDOW_VARS
+#ifndef XVARS
   #ifdef SRVR_archy
     #define INNER_GAPS 0
     #define BORDER_PIXEL 2
+    #define INTERNAL_BORDER 0
+    #define DPI 96
   #elif SRVR_veccy
     #define INNER_GAPS 0
     #define BORDER_PIXEL 2
+    #define INTERNAL_BORDER 0
+    #define DPI 150
   #else
     #define INNER_GAPS 10
     #define BORDER_PIXEL 4
+    #define INTERNAL_BORDER 15
+    #define DPI 96
   #endif
+  #define XVARS
 #endif
 
 ! set window spacing variables that i3wm can use
 i3wm.inner_gaps: INNER_GAPS
 i3wm.border_pixel: BORDER_PIXEL
 
-Xft.dpi: 96
+Xft.dpi: DPI
 Xft.autohint: 0
 Xft.antialias: true
 Xft.hinting: true
@@ -84,7 +81,8 @@ Xft.lcdfilter: lcddefault
 ! === URxvt ===
 ! =============
 
-URxvt.font: xft:DroidSansMono:size=10:antialias=true,xft:RobotoMonoForPowerline:size=12:antialias=true,xft:Inconsolata-dz\ for\ Powerline:pixelsize=12
+URxvt.font: xft:DroidSansMono:size=10:antialias=true,xft:Roboto\ Mono\ for\ Powerline:size=9:antialias=true:minspace=False
+!,xft:Inconsolata-dz\ for\ Powerline:pixelsize=10
 URxvt.letterSpace: -1
 
 ! Disable scrollbar
