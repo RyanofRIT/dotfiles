@@ -9,6 +9,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec urxvtc
 
+# start a terminal under work vpn with different color
+bindsym $mod+Shift+Return exec nsdo vectra urxvt -bg '#303e30'
+
 # refocus the last workspace
 bindsym $mod+Tab workspace back_and_forth
 
@@ -61,7 +64,7 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace spotify
+bindsym $mod+0 workspace 0
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -73,18 +76,22 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace spotify
+bindsym $mod+Shift+0 move container to workspace 0
 
-workspace 1 output DP-2
-workspace 2 output DP-2
-workspace 3 output DP-2
-workspace 4 output DP-2
-workspace 5 output DP-2
-workspace 6 output DP-4
-workspace 7 output DP-4
-workspace 8 output DP-4
-workspace 9 output DP-4
-workspace spotify output DP-4
+workspace 1 output DP-4
+workspace 2 output DP-4
+workspace 3 output DP-4
+workspace 4 output DP-4
+workspace 5 output DP-4
+workspace 6 output DP-2
+workspace 7 output DP-2
+workspace 8 output DP-2
+workspace 9 output DP-2
+workspace 0 output DP-2
+
+# move window between monitors
+bindsym $mod+Shift+greater move workspace to output DP-4
+bindsym $mod+Shift+less move workspace to output DP-2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -142,5 +149,5 @@ bindsym $mod+s exec ~/bin/audio_switch
 bindsym $mod+z exec ~/bin/lock
 bindsym $mod+t exec ~/bin/time
 bindsym $mod+b exec ~/bin/bat
-bindsym $mod+u exec ~/bin/vol up
-bindsym $mod+i exec ~/bin/vol down
+bindsym $mod+i exec ~/bin/vol up
+bindsym $mod+u exec ~/bin/vol down
